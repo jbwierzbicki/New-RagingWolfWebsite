@@ -1,0 +1,662 @@
+/* Bootstrap theme customized with Pinegrow Web Editor */
+/* Vars go before the @import */
+/* Import the Bootstrap files */
+@import "bootstrap/bootstrap";
+
+/* Fonts */
+$brand-font: Lustria;
+$alt-font: Muli;
+
+/* Font Sizes */
+$title1-fontsize: 40px;
+$title2-fontsize: 32px;
+$title3-fontsize: 28px;
+$title4-fontsize: 24px;
+$title5-fontsize: 20px;
+$title6-fontsize: 16px;
+$content-fontsize: 16px;
+$small-fontsize: 13px;
+
+/* Colors */
+$primary-color: #A7001E;
+$dark-color: #1E0F1C;
+$light-color: #FFFF00;
+$bold-color: #9B0012;
+$accent-color: #F6F6F6;
+$primary-accent-color: rgba(167, 0, 30, 0.02);
+$white-color: white;
+$background-color: #FAFAFA;
+
+/* Custom CSS */
+
+/* Primary Elements */
+h1 {
+    font-size: $title1-fontsize;
+    font-family: $brand-font;
+}
+
+h2 {
+    font-size: $title2-fontsize;
+    font-family: $brand-font;
+}
+
+h3 {
+    font-size: $title3-fontsize;
+    font-family: $brand-font;
+}
+
+h4 {
+    font-size: $title4-fontsize;
+    font-family: $alt-font;
+}
+
+h5 {
+    font-size: $title5-fontsize;
+    font-family: $alt-font;
+}
+
+h6 {
+    font-size: $title6-fontsize;
+    font-family: $alt-font;
+}
+
+p {
+    font-size: $content-fontsize;
+    font-family: $alt-font;
+}
+
+li {
+    font-size: $content-fontsize;
+    font-family: $alt-font;
+}
+
+body {
+    background-color: $background-color;
+}
+
+/* Containers */
+.body-container {
+    background-color: $background-color;
+
+}
+
+/* Main Navbar */
+.navbar {
+    padding-left: 2.917% !important;
+    padding-right: 2.917% !important;
+    margin-bottom: 5px;
+    background-color: $background-color !important;
+}
+
+.navbar-brand img {
+    height: 56px;
+}
+
+.nav-link {
+    font-family: $brand-font;
+    margin-right: 30px;
+    font-size: $content-fontsize;
+}
+
+.nav-item {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+/* Call Us Banner */
+.call-us-row {
+    background: $primary-color;
+    color: $white-color;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    z-index: 100;
+}
+
+.call-us-row-alt {
+    background: $primary-color;
+    color: $white-color;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    z-index: 100;
+}
+
+.call-us-row p {
+    margin: auto;
+}
+
+.call-us-row-alt p {
+    margin: auto;
+}
+
+/* Home Page Content */
+
+/*Header Section */
+.header-row {
+    overflow: hidden;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    background: url(../images/backgrounds/locations.svg);
+    background-color: rgba(250, 250, 250, 0.85);
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.header-section-left {
+    display: inline;
+    justify-content: right;
+    align-content: center;
+    flex-direction: column;
+    margin-top: 4.6%;
+    z-index: 3;
+}
+
+
+
+.header-card {
+    background: #FFFFFF;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    margin-left: 8.33%;
+    max-width: 500px;
+    transform: scale(1);
+    animation: pulse 2s 2.5;
+    z-index: 9999;
+}
+
+.header-content {
+    padding-top: 7%;
+    padding-bottom: 7%;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+.header-content h1,
+h5 {
+    padding-bottom: 15px;
+}
+
+.header-subtext {}
+
+.header-section-left button {
+    display: inline-block !important;
+    height: 46px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.contact-btn {
+    background: $primary-color !important;
+    border: 2px solid $primary-color !important;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: $white-color !important;
+    margin-right: 15px;
+}
+
+.contact-btn h5 {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-bottom: 0px;
+}
+
+.contact-btn:hover {
+    background: $bold-color !important;
+    border: 2px solid $bold-color !important;
+    transform: scale(1.025);
+}
+
+.track-btn {
+    border: 2px solid $primary-color !important;
+    box-sizing: border-box;
+    border-radius: 5px !important;
+    background-color: $white-color !important;
+    color: $primary-color !important;
+}
+
+.track-btn h5 {
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-bottom: 0px;
+}
+
+.track-btn:hover {
+    transform: scale(1.025);
+
+}
+
+.header-section-right {
+    max-width: 50%;
+    z-index: 1;
+}
+
+.slideshow {
+    vertical-align: middle;
+
+    overflow-y: hidden;
+    margin-left: -26.416%;
+    position: center;
+}
+
+/* Explore Banner */
+.explore-row {
+    margin-top: 75px;
+    margin-bottom: 75px;
+}
+
+.explore-text {}
+
+/* Services Row */
+.services-row {
+    background: $accent-color;
+    padding-left: 7.083%;
+    padding-right: 7.083%;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    /* background: url(../images/backgrounds/tracks.svg); */
+    background-color: $primary-accent-color;
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.services-row .col-lg-6 {
+    margin-top: 50px;
+    margin-bottom: 25px;
+    padding-left: 1.46%;
+    padding-right: 1.46%;
+}
+
+.services-row .col-lg-6 .card {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 50px 5px 5px 5px;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #FAFAFA;
+}
+
+.services-row .col-lg-6 .card .card-body {
+    width: 70%;
+    margin-left: 30%;
+}
+
+.services-row .col-lg-6 .card .card-body .card-title {}
+
+.services-row .col-lg-6 .card .card-body .card-text {
+    line-height: 216.15%;
+    opacity: .92;
+}
+
+#expedited-ground:before {
+    position: absolute;
+    left: 0;
+    top: 0em;
+    width: 8em;
+    height: 8em;
+    content: '';
+    background-image: url("../images/service icons/image 2.png");
+    z-index: 2;
+    background-size: 115% !important;
+    background-position: center center !important;
+    background-size: cover;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.6);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-left: -5%;
+}
+
+#trucking:before {
+    position: absolute;
+    left: 0;
+    top: 0em;
+    width: 8em;
+    height: 8em;
+    content: '';
+    background-image: url("../images/service icons/image 3-1.png");
+    z-index: 2;
+    background-size: 115%;
+    background-position: center center;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.6);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-left: -5%;
+}
+
+#domestic-air-freight:before {
+    position: absolute;
+    left: 0;
+    top: 0em;
+    width: 8em;
+    height: 8em;
+    content: '';
+    background-image: url("../images/service icons/image 3.png");
+    z-index: 2;
+    background-size: 115% !important;
+    background-position: center center !important;
+    background-size: cover;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.6);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-left: -5%;
+}
+
+#customized-services:before {
+    position: absolute;
+    left: 0;
+    top: 0em;
+    width: 8em;
+    height: 8em;
+    content: '';
+    background-image: url("../images/service icons/image 2.1.png");
+    z-index: 2;
+    background-size: 115% !important;
+    background-position: center center !important;
+    background-size: cover;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.6);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    margin-left: -5%;
+}
+
+/* Benefits Row */
+.benefits-row {
+    padding-left: 7.11%;
+    padding-right: 7.11%;
+    margin-bottom: 75px;
+}
+
+.benefits-header {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.benefits-row .col-lg-5,
+.col-lg-7 {
+    height: 400px;
+    vertical-align: middle;
+}
+
+.benefits-row .benefits-map {
+    background: url("../images/benefits-map.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    content: "";
+    margin-bottom: 25px;
+}
+
+.benefits-row .col-lg-7 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+}
+
+.benefits-row .col-lg-7 ul {
+    margin-bottom: 0px;
+}
+
+.benefits-row .col-lg-7 ul li {
+    padding-bottom: 15px;
+}
+
+.benefits-row .col-lg-7 ul li b {
+    color: $bold-color;
+
+}
+
+/* Staples Row */
+.staples-row {
+    padding-left: 7.11%;
+    padding-right: 7.11%;
+    padding-top: 75px;
+    padding-bottom: 10px;
+    background: $primary-accent-color;
+}
+
+.staples-row .col-lg-4 {
+    margin-bottom: 65px;
+    
+}
+
+.staples-row .col-lg-4 img {
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.staples-row .col-lg-4 h3 {
+    margin-bottom: 25px;
+}
+
+/* Location Row */
+.location-row {
+    padding-top: 20px;
+    padding-bottom: 75px;
+}
+
+.location-header {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.location-header .col-lg-12 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+
+}
+
+.location-map {
+    padding-top: 55px;
+}
+
+.fa-building {
+    font-size: 100px;
+    color: $bold-color;
+    opacity: .8;
+}
+
+.fa-envelope {
+    font-size: 100px;
+    color: $bold-color;
+    opacity: .8;
+}
+
+.location-info {
+    padding-top: 55px;
+}
+
+.location-content {
+    margin-top: 10%;
+}
+
+.location-info .col-lg-5,
+.col-lg-7 {
+    height: auto;
+}
+
+.office-col {
+    margin-bottom: 50px;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.mail-col {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+
+.mapouter {
+    position: relative;
+    height: auto;
+
+    width: 100%;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.map-credit {
+    opacity: .5;
+}
+
+/* Footer */
+
+footer {
+    margin-top: 75px;
+}
+
+footer a {
+    color: $bold-color;
+}
+
+.footer-img {
+    width: 50%;
+    margin-top: 16px;
+    opacity: .85;
+}
+
+.footer-img:hover {
+    opacity: 1;
+}
+
+.footer-copyright {
+    margin-top: 25px;
+    color: $white-color;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.footer-copyright a {
+    color: #FF3D60;
+}
+
+/* Contact Page Misc */
+.contact-content {
+    transform: scale(1);
+    animation: pulse 2s 2.5;
+}
+
+
+/* Keyframe Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Media Queries */
+@media (max-width: 576px) {
+    .footer-copyright {
+        overflow: hidden;
+        width: 100%;
+    }
+}
+
+@media (min-width: 577px) {}
+
+/* Medium devices (tablets, 768px and up) -- Switches over to one column */
+@media (max-width: 768px) {
+    .benefits-map {
+        width: 50%;
+        background-size: contain !important;
+        min-height: 275px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .benefits-row .col-lg-5,
+    .col-lg-7 {
+        height: auto !important;
+    }
+}
+
+@media (max-width: 992px) {
+
+    .header-section-right {
+        width: 100% !important;
+        max-width: 100% !important;
+        z-index: 1;
+    }
+
+    .slideshow {
+        vertical-align: middle;
+        max-height: 390px;
+        overflow-y: hidden;
+        position: center;
+        margin-left: 0;
+    }
+
+    #expedited-ground:before,
+    #trucking:before,
+    #domestic-air-freight:before,
+    #customized-services:before {
+        width: 6.9em !important;
+        height: 6.9em !important;
+    }
+
+    .header-card {
+        margin-top: -11%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header-card::before {
+        display: none !important;
+    }
+
+    .services-row .col-lg-6 .card {
+        width: 99%;
+    }
+
+    .office-col-header {
+        margin-top: 23px;
+    }
+
+    .mail-col-header {
+        margin-top: 23px;
+    }
+
+}
+
+
+/* example taken from https://stackoverflow.com/a/48976550/3466464 */
+/* import what we need to override */
+@import "bootstrap/_functions";
+@import "bootstrap/_variables";
+
+/* set the overriding variables */
+$grid-breakpoints: (xxl: 1440px,
+    xxxl: 1600px);
+$container-max-widths: (xxl: 1440px,
+    xxxl: 1600px);
+
+/* override the !default vars with the values we set above */
+@import "bootstrap/bootstrap";
