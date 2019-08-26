@@ -5,7 +5,7 @@ $(window).scroll(function(e){
       $el.css({'position': 'fixed', 'top': '0px', 'left': '15px', 'width': '100%'}); 
     }
     if ($(this).scrollTop() < 200 && isPositionFixed){
-      $el.css({'position': 'static', 'top': '0px', 'width': 'auto'}); 
+      $el.css({'position': 'static', 'top': '0px', 'width': ''}); 
     } 
   });
 
