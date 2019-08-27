@@ -7737,7 +7737,6 @@ body {
   margin-top: -160px;
   overflow: hidden;
   /* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(250, 250, 250, .6) 70%, rgba(250, 250, 250, 1) 100%), url(../images/slideshow/RagingWolfSunset.png); */
-  background-color: rgba(250, 250, 250, 0.15);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(250, 250, 250, 0.6) 70%, #fafafa 100%), url(../images/slideshow/RagingWolfSunset.png);
   background-blend-mode: lighten;
   background-repeat: no-repeat;
