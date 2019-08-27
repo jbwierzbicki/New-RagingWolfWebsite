@@ -160,9 +160,9 @@ body {
     background-blend-mode: lighten;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center center;
+    background-position: center top;
     background-attachment: fixed;
-    min-height: 93vh;
+    min-height: 725px;
 }
 
 .header-section-right {
@@ -172,6 +172,7 @@ body {
     padding-left: 5%;
     padding-right: 5%;
     margin-right: 90px !important;
+    min-height: inherit;
 }
 
 
@@ -271,7 +272,6 @@ h5 {
 
 /* Services Row */
 .services-row {
-    background: $accent-color;
     padding-left: 7.083%;
     padding-right: 7.083%;
     padding-bottom: 50px;
