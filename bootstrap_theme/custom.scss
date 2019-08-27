@@ -156,7 +156,7 @@ body {
     overflow: hidden;
     /* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(250, 250, 250, .6) 70%, rgba(250, 250, 250, 1) 100%), url(../images/slideshow/RagingWolfSunset.png); */
     background-color: rgba(250, 250, 250, 0.15);
-    background: url(../images/slideshow/RagingWolfSunset.png);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(250, 250, 250, .6) 70%, rgba(250, 250, 250, 1) 100%), url(../images/slideshow/RagingWolfSunset.png);
     background-blend-mode: lighten;
     background-repeat: no-repeat;
     background-size: cover;
@@ -391,7 +391,7 @@ h5 {
 .benefits-row {
     padding-left: 7.11%;
     padding-right: 7.11%;
-    margin-bottom: 75px;
+    margin-bottom: 50px;
     background: url(../images/backgrounds/trucking.png);
     background-blend-mode: lighten;
     background-repeat: no-repeat;
@@ -448,9 +448,10 @@ h5 {
 .staples-row {
     padding-left: 7.11%;
     padding-right: 7.11%;
-    padding-top: 75px;
+    padding-top: 150px;
     padding-bottom: 10px;
-    margin-bottom: 75px;
+    margin-bottom: 50px;
+    min-height: 600px;
     background: $primary-accent-color;
 }
 
@@ -520,7 +521,7 @@ h5 {
 }
 
 .location-content {
-    margin-top: 10%;
+    margin-top: 30px;
 }
 
 .location-info .col-lg-12 {
