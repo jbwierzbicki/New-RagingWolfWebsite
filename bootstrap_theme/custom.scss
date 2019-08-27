@@ -419,17 +419,18 @@ h5 {
 .benefits-content {
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, #FFFFFF 40%);
     max-width: 55%;
+    padding-left: 5%;
+    padding-right: 5%;
+
 }
 
 .benefits-header {
     margin-top: 25px;
     margin-bottom: 25px;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
 }
 
 .benefits-header h1 {
-    font-size: 64px;
+    font-size: 48px;
 }
 
 .benefits-row .col-lg-12 {
@@ -441,6 +442,7 @@ h5 {
 
 .benefits-row .col-lg-12 ul {
     margin-bottom: 0px;
+    padding-left: 20px;
 
 }
 
@@ -463,6 +465,7 @@ h5 {
     padding-right: 7.11%;
     padding-top: 75px;
     padding-bottom: 10px;
+    margin-bottom: 75px;
     background: $primary-accent-color;
 }
 
@@ -482,8 +485,12 @@ h5 {
 
 /* Location Row */
 .location-row {
-    padding-top: 20px;
-    padding-bottom: 75px;
+    background: url(../images/backgrounds/mountainroad.png);
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
 }
 
 .location-header {
@@ -497,32 +504,41 @@ h5 {
 
 }
 
+.location-header .col-lg-12 h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
 .location-map {
     padding-top: 55px;
 }
 
 .fa-building {
-    font-size: 100px;
+    font-size: 30px;
     color: $bold-color;
     opacity: .8;
 }
 
 .fa-envelope {
-    font-size: 100px;
+    font-size: 30px;
     color: $bold-color;
     opacity: .8;
 }
 
 .location-info {
     padding-top: 55px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, #FFFFFF 40%);
+    max-width: 55%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-right: 90px !important;
 }
 
 .location-content {
     margin-top: 10%;
 }
 
-.location-info .col-lg-5,
-.col-lg-7 {
+.location-info .col-lg-12 {
     height: auto;
 }
 
@@ -543,7 +559,6 @@ h5 {
 .mapouter {
     position: relative;
     height: auto;
-
     width: 100%;
 }
 
@@ -654,6 +669,15 @@ footer a {
         margin-right: 0 !important;
     }
     .benefits-row {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .location-info {
         width: 100% !important;
         max-width: 100% !important;
         margin-left: 0 !important;
