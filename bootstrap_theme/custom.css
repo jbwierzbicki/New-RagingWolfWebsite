@@ -8169,6 +8169,15 @@ footer a {
     margin-left: 0 !important;
     margin-right: 0 !important; }
 
+  .benefits-content {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, #FFFFFF 90%); }
+
+  .location-info {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, #FFFFFF 90%); }
+
+  .header-section-right {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, #FFFFFF 90%); }
+
   .slideshow {
     vertical-align: middle;
     max-height: 390px;
