@@ -162,6 +162,7 @@ body {
     background-position: center top;
     background-attachment: fixed;
     height: 95vh;
+    min-height: 715px;
     max-height: 850px;
 
 }
@@ -174,6 +175,8 @@ body {
     padding-right: 5%;
     margin-right: 90px !important;
     min-height: inherit;
+    height: inherit;
+    max-height: inherit;
 }
 
 
@@ -624,6 +627,13 @@ footer a {
 }
 
 /* Media Queries */
+@media (max-width: 414px) {
+    .header-row {
+        min-height: 850px;
+        max-height: 850px;
+    }
+}
+
 @media (max-width: 576px) {
     .footer-copyright {
         overflow: hidden;
