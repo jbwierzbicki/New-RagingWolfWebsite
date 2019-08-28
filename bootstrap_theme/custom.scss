@@ -161,7 +161,9 @@ body {
     background-size: cover;
     background-position: center top;
     background-attachment: fixed;
-    min-height: 725px;
+    height: 90vh;
+    max-height: 850px;
+
 }
 
 .header-section-right {
