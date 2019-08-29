@@ -80,7 +80,7 @@
                         <h4 class="mb-4 text-center">Request a free quote</h4>
 
                         <select id="defaultSelect" class="browser-default custom-select mb-4"
-                            placeholder="Request a quote" name="Subject" >
+                            placeholder="Request a quote" name="Subject">
                             <option value="Request a quote" selected="true">Request a quote
                             </option>
                         </select>
@@ -105,9 +105,39 @@
                             <input type="time" id="deliverytime" class="form-control mb-4" placeholder="Delivery Time"
                                 name="Delivery Time">
 
+                            <label for="defaultSelect" class="subject-label">Pickup and Delivery Locations</label>
+
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <input type="text" id="pickup-city" class="form-control mb-4"
+                                        placeholder="Pickup City" name="Pickup City">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" id="pickup-state" class="form-control mb-4"
+                                        placeholder="Pickup State" name="Pickup State">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="number" id="pickup-zip" class="form-control mb-4"
+                                        placeholder="Pickup Zip Code" name="Pickup Zip Code">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <input type="text" id="delivery-city" class="form-control mb-4"
+                                        placeholder="Delivery City" name="Delivery City">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="text" id="delivery-state" class="form-control mb-4"
+                                        placeholder="Delivery State" name="Delivery State">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="number" id="delivery-zip" class="form-control mb-4"
+                                        placeholder="Delivery Zip Code" name="Delivery Zip Code">
+                                </div>
+                            </div>
+
                             <label for="defaultSelect" class="subject-label">Shipment Details</label>
-                            <input type="number" id="pickup-zip" class="form-control mb-4" placeholder="Pickup Zip Code"
-                                name="Pickup Zip Code">
+
                             <input type="text" id="commodity" class="form-control mb-4" placeholder="Pickup Commodity"
                                 name="Pickup Commodity">
                             <input type="text" id="weight" class="form-control mb-4" placeholder="Pickup Weight"
@@ -130,6 +160,11 @@
                                 </div>
                             </div>
 
+                            <label for="defaultSelect" class="subject-label">Preferred Truck Type</label>
+                            <input type="text" id="trucktype" class="form-control mb-4" placeholder="53' Dry Van, Flatbed, etc..."
+                                name="Truck Type">
+
+                            <label for="defaultSelect" class="subject-label">Other Comments</label>
 
                             <textarea name="Comments" class="form-control rounded-0" id="exampleFormControlTextarea2"
                                 rows="3" placeholder="Comments" name="Comments"></textarea>
