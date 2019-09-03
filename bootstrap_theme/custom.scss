@@ -72,6 +72,7 @@ li {
 
 body {
     background-color: $background-color;
+
 }
 
 /* Containers */
@@ -742,6 +743,11 @@ footer a {
 
 }
 
+@media (min-width: 1200px) {
+
+
+}
+
 
 /* example taken from https://stackoverflow.com/a/48976550/3466464 */
 /* import what we need to override */
@@ -749,10 +755,13 @@ footer a {
 @import "bootstrap/_variables";
 
 /* set the overriding variables */
+
 $grid-breakpoints: (xxl: 1440px,
     xxxl: 1600px);
 $container-max-widths: (xxl: 1440px,
     xxxl: 1600px);
+
+
 
 /* override the !default vars with the values we set above */
 @import "bootstrap/bootstrap";
