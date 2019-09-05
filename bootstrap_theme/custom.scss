@@ -81,6 +81,10 @@ body {
 
 }
 
+.section-container {
+    min-height: 85vh !important;
+}
+
 /* Main Navbar */
 .navbar {
     z-index: 3;
@@ -129,7 +133,8 @@ body {
     margin-left: 0 !important;
     margin-right: 0 !important;
     z-index: 10;
-    width: 100%;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
 }
 
 .call-us-row-alt {
@@ -165,7 +170,6 @@ body {
     height: 95vh;
     min-height: 715px;
     max-height: 850px;
-
 }
 
 .header-section-right {
@@ -182,7 +186,7 @@ body {
 
 
 .header-content {
-    margin-top: 26%;
+    margin-top: 150px;
     padding-top: 7%;
     padding-bottom: 7%;
     padding-left: 5%;
@@ -215,12 +219,8 @@ h5 {
     border-radius: 5px;
     color: $white-color !important;
     margin-right: 15px;
-}
-
-.contact-btn h5 {
-    margin-top: auto;
-    margin-bottom: auto;
-    padding-bottom: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .contact-btn:hover {
@@ -235,12 +235,15 @@ h5 {
     border-radius: 5px !important;
     background-color: transparent;
     color: $primary-color !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.track-btn h5 {
-    margin-top: auto;
-    margin-bottom: auto;
-    padding-bottom: 0px;
+
+.btn-text {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding-bottom: 0;
 }
 
 .track-btn:hover {
@@ -421,8 +424,9 @@ h5 {
     margin-bottom: 25px;
 }
 
-.benefits-header h1 {
+.benefits-header-text {
     font-size: 48px;
+    margin-bottom: 25px;
 }
 
 .benefits-row .col-lg-12 {
@@ -465,6 +469,8 @@ h5 {
 
 .staples-row .col-lg-4 {
     margin-bottom: 65px;
+    padding-left: 25px;
+    padding-right: 25px;
 
 }
 
@@ -494,6 +500,7 @@ h5 {
 .location-header {
     margin-left: 0 !important;
     margin-right: 0 !important;
+    margin-bottom: 30px;
 }
 
 .location-header .col-lg-12 {
@@ -596,10 +603,16 @@ footer a {
     margin-top: 25px;
     color: $white-color;
     background-color: rgba(0, 0, 0, 0.8);
+    margin-left: -15px;
+    margin-right: -15px;
 }
 
 .footer-copyright a {
     color: #FF3D60;
+}
+
+.phone-email-footer {
+    overflow: hidden;
 }
 
 /* Contact Page Misc */
@@ -676,10 +689,6 @@ footer a {
     }
 
     .benefits-row {
-        width: 100% !important;
-        max-width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
         padding-left: 0 !important;
         padding-right: 0 !important;
     }
@@ -743,10 +752,7 @@ footer a {
 
 }
 
-@media (min-width: 1200px) {
-
-
-}
+@media (min-width: 1200px) {}
 
 
 /* example taken from https://stackoverflow.com/a/48976550/3466464 */

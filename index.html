@@ -20,7 +20,7 @@
 
 <body data-title="index">
     <div class="container-fluid body-container">
-        <nav class="navbar navbar-expand-lg navbar-light static-top custom-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light static-top custom-navbar" data-aos="fade-right">
             <div class="container">
                 <a class="navbar-brand" href="index.html"> <img class="" src="images/RW-logo3.svg"> </a>
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
@@ -39,7 +39,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="index.html">Alpha Tracking</a>
+                            <a class="nav-link" href="alphatracker.html">Alpha Tracking</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="requestaquote.html">Request a Quote<span
@@ -55,21 +55,19 @@
 
         <div class="homepage-content">
             <div class="row flex-column-reverse flex-lg-row header-row justify-content-end">
-                <div class="header-section-right col-lg-12">
+                <div class="header-section-right col-lg-12" data-aos="fade-up">
                     <div class="header-content">
                         <h1>We are the alpha leader in logistics.</h1>
                         <h5 class="header-subtext">Ensuring quality service for all of your transportation
                             needs. Reach out and speak to our team
                             about your logistics needs today!</h5>
                         <div>
-                            <a href="contact.html">
-                                <button type="button" class="btn contact-btn">
-                                    <h5>Contact Us</h5>
-                                </button>
+                            <a href="contact.html" class="btn contact-btn">
+                                <h5 class="btn-text">Contact Us</h5>
                             </a>
-                            <button type="button" class="btn track-btn">
-                                <h5>Track a shipment</h5>
-                            </button>
+                            <a href="alphatracker.html" class="btn track-btn">
+                                <h5 class="btn-text">Track a shipment</h5>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -85,7 +83,8 @@
                     </h4>
                 </div>
             </div>
-            <div class="row services-row" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+            <div class="section-container row services-row align-items-center" data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom">
                 <div class="col-lg-6">
                     <div id="expedited-ground" class="card align-middle">
                         <div class="card-body text-left">
@@ -139,12 +138,12 @@
                     </div>
                 </div>
             </div>
-            <div class="row benefits-row">
-                <div class="row benefits-content">
-                    <div class="col-lg-12 text-center benefits-header">
-                        <h1>Benefits of using our services</h1>
+            <div class="section-container row benefits-row">
+                <div class="row benefits-content" data-aos="fade-down">
+                    <div class="col-lg-12 text-center benefits-header align-items-end">
+                        <h1 class="benefits-header-text">Benefits of using our services</h1>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-12 align-items-start">
                         <ul>
                             <li>Our staff has <b>over 40 years of logistics experience</b> ready to work for you!</li>
 
@@ -167,7 +166,8 @@
                     </div>
                 </div>
             </div>
-            <div class="row staples-row" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
+            <div class="section-container row staples-row align-items-center" data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom">
                 <div class="col-lg-4 text-center">
                     <img src="images/Staples/undraw_logistics_x4dc.svg">
                     <h3>Affordable transportation</h3>
@@ -202,8 +202,8 @@
                     </p>
                 </div>
             </div>
-            <div class="row location-row justify-content-end" data-aos="">
-                <div class="row location-info">
+            <div class="section-container row location-row justify-content-end">
+                <div class="row location-info align-items-center" data-aos="fade-down">
                     <div class="col-lg-12">
                         <div class="row location-header">
                             <div class="col-lg-12 text-center">
@@ -292,7 +292,7 @@
                     <div class="col-md-3 mx-auto">
                         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contact Us</h5>
 
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled phone-email-footer">
                             <li>
                                 855-WOLF-PAK (965-3725)
                             </li>

@@ -12,7 +12,7 @@
     <link href="bootstrap_theme/custom.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="style/style.css" rel="stylesheet">
-    <link href="style/contact.css" rel="stylesheet">
+    <link href="style/tracker.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lustria">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
@@ -21,9 +21,9 @@
 
 <body data-title="index">
     <div class="container-fluid body-container">
-        <nav class="navbar navbar-expand-lg navbar-light static-top custom-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light static-top custom-navbar" data-aos="fade-right">
             <div class="container">
-                <a class="navbar-brand" href="index.html"> <img src="images/RW-logo3.svg"> </a>
+                <a class="navbar-brand" href="index.html"> <img class="" src="images/RW-logo3.svg"> </a>
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
                     data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -39,78 +39,54 @@
                                     class="sr-only">(current)</span>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="active nav-item">
                             <a class="nav-link" href="index.html">Alpha Tracking</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="requestaquote.html">Request a Quote<span
                                     class="sr-only">(current)</span> </a>
                         </li>
-                        <li class="nav-item nav-item-right active">
-                            <a class="nav-link-right nav-link" href="#">Contact</a>
+                        <li class="nav-item nav-item-right">
+                            <a class="nav-link-right nav-link" href="contact.html">Contact</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="row call-us-row">
-            <div class="col-lg-12 text-center">
-                <p>855-965-3725 (WOLF-PAK) | Call for your free quote today!</p>
-            </div>
-        </div>
-        <div class="homepage-content">
-            <div class="row contact-row">
-                <div class="col-lg-6 contact-info">
-                    <div class="text-center contact-content">
-                        <h1>Need some help?</h1>
-                        <h4>Contact us using the provided form.</h4>
-                        <div class="phone-email">
-                            <h6 class="reach-us-header">Reach us directly at: </h6>
-                            <h5 class="phone">855-WOLF-PAK (965-3725) </h5>
-                            <p>- or -</p>
-                            <a href="mailto:support@ragingwolfsolutions.com">
-                                <h5 class="email">support@ragingwolfsolutions.com</h5>
-                            </a>
+
+        <div class="tracker-content">
+            <div class="row flex-column-reverse flex-lg-row tracker-header-row justify-content-center">
+                <div class="header-section col-lg-7" data-aos="fade-up">
+                    <div class="header-section-content">
+                        <h1>Track your shipment.</h1>
+                        <h3>Welcome to the Raging Wolf Solutions alpha tracking system.</h3>
+                        <div class="header-section-description">
+                            <p>
+                                Here, you can <b>track shipments and receive updates on any of your orders.</b> Our team
+                                is
+                                also available 24/7 to answer your questions or provide further information. Get started
+                                by entering your tracking number below.
+                            </p>
+                        </div>
+                        <div class="card tracker-card">
+                            <div class="card-body tracker-card-body">
+                                <p>Tracking Number:</p>
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <input type=" text" class="form-control" aria-label="Default"
+                                            aria-describedby="inputGroup-sizing-default">
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <a href="#" class="btn btn-primary tracker-btn">Track Order</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <form class="border p-5 contact-form"
-                        action="https://formspree.io/johnathan@ragingwolfsolutions.com" method="POST">
-
-                        <h4 class="mb-4 text-center">Contact us</h4>
-
-
-                        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Your Name"
-                            name="Name">
-
-                        <input type="email" id="defaultContactFormEmail" class="form-control mb-4"
-                            placeholder="Your E-mail" name="Email">
-
-                        <label for="defaultSelect" class="subject-label">Subject</label>
-                        <select id="defaultSelect" class="browser-default custom-select mb-4" name="Subject">
-                            <option value="" disabled="">Choose option</option>
-                            <option value="General Question" selected="">General Question</option>
-                            <option value="Request a quote">Request a quote</option>
-                            <option value="Check order status">Check order status</option>
-                            <option value="Feedback">Feedback</option>
-                            <option value="Other">Other...</option>
-                        </select>
-
-                        <textarea name="message" class="form-control rounded-0" id="exampleFormControlTextarea2"
-                            rows="3" placeholder="Message" name="Message"></textarea>
-
-                        <div class="custom-control custom-checkbox mb-4">
-                            <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
-                            <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this
-                                message</label>
-                        </div>
-
-                        <button class="btn btn-info send-btn" type="submit">Send Message</button>
-                    </form>
-                </div>
             </div>
         </div>
+
         <footer class="page-footer font-small indigo">
             <div class="container text-center text-md-left">
                 <div class="row">
@@ -156,7 +132,7 @@
                     <div class="col-md-3 mx-auto">
                         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Contact Us</h5>
 
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled phone-email-footer">
                             <li>
                                 855-WOLF-PAK (965-3725)
                             </li>
@@ -173,14 +149,13 @@
             </div>
             <!-- Copyright -->
         </footer>
-    </div>
 
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/popper.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/popper.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="scripts/javascript.js"></script>
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script src="scripts/javascript.js"></script>
 
 </body>

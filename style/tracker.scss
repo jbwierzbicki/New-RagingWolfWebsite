@@ -1,0 +1,116 @@
+/* Bootstrap theme customized with Pinegrow Web Editor */
+/* Vars go before the @import */
+/* Import the Bootstrap files */
+@import "../bootstrap_theme/bootstrap/bootstrap";
+
+/* Fonts */
+$brand-font: Lustria;
+$alt-font: Muli;
+
+/* Font Sizes */
+$title1-fontsize: 40px;
+$title2-fontsize: 32px;
+$title3-fontsize: 28px;
+$title4-fontsize: 24px;
+$title5-fontsize: 20px;
+$title6-fontsize: 16px;
+$content-fontsize: 16px;
+$small-fontsize: 13px;
+
+/* Colors */
+$primary-color: #A7001E;
+$dark-color: #1E0F1C;
+$light-color: #FFFF00;
+$bold-color: #9B0012;
+$accent-color: #F6F6F6;
+$primary-accent-color: rgba(167, 0, 30, 0.02);
+$white-color: white;
+$background-color: #FFFFFF;
+
+/* Custom CSS */
+.header-section {
+    padding-top: 55px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, #FFFFFF 40%);
+
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 65px;
+    min-height: inherit;
+    height: inherit;
+    max-height: inherit;
+}
+
+.tracker-header-row {
+    margin-top: -160px;
+    overflow: hidden;
+    /* background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(250, 250, 250, .6) 70%, rgba(250, 250, 250, 1) 100%), url(../images/slideshow/RagingWolfSunset.png); */
+    background: url(../images/slideshow/RagingWolfSunset.png);
+    background-blend-mode: lighten;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+
+    
+}
+
+.header-section-content {
+    margin-top: 110px;
+    padding-top: 7%;
+    padding-bottom: 7%;
+}
+
+.header-section-content h1 {
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header-section-content h3 {
+    font-family: $alt-font;
+    text-align: center;
+    margin-bottom: 75px;
+}
+
+.header-section-description {
+    margin-bottom: 35px;
+}
+
+b {
+    color: $bold-color;
+}
+
+.tracker-card {
+    background-color: #A31425;
+    border: none;
+}
+
+.tracker-card-body {
+    
+}
+
+.tracker-card-body p {
+    color: white;
+}
+
+.tracker-btn {
+    max-height: 40px;
+    border: 2px solid #FFFFFF;
+    background-color: transparent;
+    color: white;
+    overflow: hidden;
+}
+
+.tracker-btn:hover {
+    transform: scale(1.025);
+    background-color: transparent;
+    border: 2px solid #FFFFFF;
+}
+
+@media (max-width: 992px) {
+
+    .tracker-btn {
+        margin-top: 16px;
+    }
+
+}
