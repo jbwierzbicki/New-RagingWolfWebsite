@@ -8123,7 +8123,7 @@ footer a {
 /* Contact Page Misc */
 .contact-content {
   transform: scale(1);
-  animation: pulse 2s 2.5; }
+  animation: pulse 2s 1.5; }
 
 /* Keyframe Animations */
 @keyframes pulse {
