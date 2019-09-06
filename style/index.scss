@@ -1,0 +1,61 @@
+/* Bootstrap theme customized with Pinegrow Web Editor */
+/* Vars go before the @import */
+/* Import the Bootstrap files */
+@import "../bootstrap_theme/bootstrap/bootstrap";
+
+
+/* Fonts */
+$brand-font: Lustria;
+$alt-font: Muli;
+
+/* Font Sizes */
+$title1-fontsize: 40px;
+$title2-fontsize: 32px;
+$title3-fontsize: 28px;
+$title4-fontsize: 24px;
+$title5-fontsize: 20px;
+$title6-fontsize: 16px;
+$content-fontsize: 16px;
+$small-fontsize: 13px;
+
+/* Colors */
+$primary-color: #A7001E;
+$dark-color: #1E0F1C;
+$light-color: #FFFF00;
+$bold-color: #9B0012;
+$accent-color: #F6F6F6;
+$primary-accent-color: rgba(167, 0, 30, 0.02);
+$white-color: white;
+$background-color: #FFFFFF;
+
+
+.navbar::after {
+    position: absolute;
+    right: 90px;
+    top: 76px;
+    width: 45%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: white;
+    text-align: center;
+    background: $primary-color;
+    content: "855-965-3725 (WOLF-PAK) | Call for your free quote today!";
+    z-index: 2;
+}
+
+.collapsing {
+    margin-top: 45px;
+}
+
+.show {
+    margin-top: 45px;
+}
+
+@media (max-width: 992px) {
+
+    .navbar::after {
+        right: 0;
+        width: 100vw;
+        content: "855-965-3725 (WOLF-PAK) | Call today!";
+    }
+}

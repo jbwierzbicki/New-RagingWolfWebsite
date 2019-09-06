@@ -87,6 +87,7 @@ body {
 
 /* Main Navbar */
 .navbar {
+    position: absolute;
     z-index: 3;
     padding-left: 2.917% !important;
     padding-right: 2.917% !important;
@@ -186,7 +187,7 @@ body {
 
 
 .header-content {
-    margin-top: 150px;
+    margin-top: 180px;
     padding-top: 7%;
     padding-bottom: 7%;
     padding-left: 5%;
@@ -644,14 +645,16 @@ footer a {
 @media (max-width: 414px) {
     .header-row {
         min-height: 850px;
-        max-height: 850px;
+        height: auto;
+        max-height: 950px;
+
     }
 }
 
 @media (max-width: 576px) {
     .footer-copyright {
         overflow: hidden;
-        width: 100%;
+
     }
 }
 
