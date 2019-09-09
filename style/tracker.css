@@ -7689,6 +7689,7 @@ b {
   color: white; }
 
 .tracker-btn {
+  width: 100%;
   max-height: 40px;
   border: 2px solid #FFFFFF;
   background-color: transparent;
