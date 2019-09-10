@@ -7746,7 +7746,7 @@ body {
   background-blend-mode: lighten;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center top;
+  background-position: center bottom;
   background-attachment: fixed;
   height: 95vh;
   min-height: 715px;
@@ -7950,17 +7950,17 @@ h5 {
   padding-left: 7.11%;
   padding-right: 7.11%;
   margin-bottom: 50px;
-  background: url(../images/backgrounds/trucking.png);
+  background: url(../images/backgrounds/mug.jpg);
   background-blend-mode: lighten;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-attachment: fixed;
   min-height: 600px; }
 
 .benefits-content {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, #FFFFFF 40%);
-  max-width: 55%;
+  width: 55%;
   padding-left: 5%;
   padding-right: 5%; }
 
@@ -8021,11 +8021,11 @@ h5 {
 .location-row {
   padding-left: 7.11%;
   padding-right: 7.11%;
-  background: url(../images/backgrounds/mountainroad.png);
+  background: url(../images/backgrounds/original.jpg);
   background-blend-mode: lighten;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-attachment: fixed; }
 
 .location-header {
@@ -8062,7 +8062,7 @@ h5 {
   padding-right: 5%; }
 
 .location-content {
-  margin-top: 30px; }
+  margin-top: 40px; }
 
 .location-info .col-lg-12 {
   height: auto; }
@@ -8218,11 +8218,17 @@ footer a {
   .services-row .col-lg-6 .card {
     width: 99%; }
 
+  .office-col {
+    text-align: center; }
+
   .office-col-header {
-    margin-top: 23px; }
+    margin-top: 10px; }
+
+  .location-text {
+    margin-bottom: 50px; }
 
   .mail-col-header {
-    margin-top: 23px; } }
+    margin-top: 10px; } }
 /* example taken from https://stackoverflow.com/a/48976550/3466464 */
 /* import what we need to override */
 /* set the overriding variables */
