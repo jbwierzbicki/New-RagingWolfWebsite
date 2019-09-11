@@ -7725,7 +7725,10 @@ a.text-dark:hover, a.text-dark:focus {
     margin-bottom: 20px; }
 
   .about-header-right {
-    padding-left: 15px; } }
+    padding-left: 15px; }
+
+  .company-about {
+    height: auto; } }
 /* Keyframe Animations */
 @keyframes pulse {
   0% {
