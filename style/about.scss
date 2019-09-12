@@ -112,7 +112,12 @@ $background-color: #FFFFFF;
 }
 
 .profile-name {
+    margin-bottom: 8px;
+}
+
+.profile-role {
     margin-bottom: 30px;
+    opacity: 0.85;
 }
 
 .divbreak {
@@ -136,12 +141,39 @@ $background-color: #FFFFFF;
     margin-bottom: auto;
 }
 
+.company-about-text p {
+    opacity: 0.95;
+}
+
 .company-about-row {
     height: 100%;
 }
 
 .company-about-h1 {
     margin-bottom: 30px;
+    font-size: 48px;
+}
+
+.company-about-buttons {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.about-btn {
+    margin-bottom: 30px;
+    width: 75%;
+    max-height: 40px;
+    border: 2px solid #FFFFFF;
+    background-color: transparent;
+    color: white;
+    overflow: hidden;
+}
+
+.about-btn:hover {
+
+    background-color: white;
+    color: $primary-color;
+    border: 2px solid #FFFFFF;
 }
 
 
@@ -160,6 +192,10 @@ $background-color: #FFFFFF;
     }
     .company-about {
         height: auto;
+    }
+
+    .company-about-buttons {
+        padding-top: 30px;
     }
    
 

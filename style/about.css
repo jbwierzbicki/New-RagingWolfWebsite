@@ -7689,7 +7689,11 @@ a.text-dark:hover, a.text-dark:focus {
   margin-right: auto; }
 
 .profile-name {
-  margin-bottom: 30px; }
+  margin-bottom: 8px; }
+
+.profile-role {
+  margin-bottom: 30px;
+  opacity: 0.85; }
 
 .divbreak {
   margin-top: 100px;
@@ -7709,11 +7713,33 @@ a.text-dark:hover, a.text-dark:focus {
   margin-top: auto;
   margin-bottom: auto; }
 
+.company-about-text p {
+  opacity: 0.95; }
+
 .company-about-row {
   height: 100%; }
 
 .company-about-h1 {
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  font-size: 48px; }
+
+.company-about-buttons {
+  margin-top: auto;
+  margin-bottom: auto; }
+
+.about-btn {
+  margin-bottom: 30px;
+  width: 75%;
+  max-height: 40px;
+  border: 2px solid #FFFFFF;
+  background-color: transparent;
+  color: white;
+  overflow: hidden; }
+
+.about-btn:hover {
+  background-color: white;
+  color: #A7001E;
+  border: 2px solid #FFFFFF; }
 
 @media (max-width: 992px) {
   .about-header {
@@ -7728,7 +7754,10 @@ a.text-dark:hover, a.text-dark:focus {
     padding-left: 15px; }
 
   .company-about {
-    height: auto; } }
+    height: auto; }
+
+  .company-about-buttons {
+    padding-top: 30px; } }
 /* Keyframe Animations */
 @keyframes pulse {
   0% {
