@@ -51,7 +51,7 @@ $background-color: #FFFFFF;
     background-position: center top;
     background-attachment: fixed;
 
-    
+
 }
 
 .header-section-content {
@@ -62,7 +62,6 @@ $background-color: #FFFFFF;
 
 .header-section-content h1 {
     font-size: 64px;
-    text-align: center;
     margin-bottom: 25px;
 }
 
@@ -112,12 +111,96 @@ b {
     border: 2px solid #FFFFFF;
 }
 
+/* Details Page */
+.details-h6 {
+    color: #615757;
+    font-weight: bold;
+}
+
+.order-details-header-section {
+
+}
+
+.order-details-icon {
+    display: inline-block;
+    color: #615757;
+    font-weight: bold;
+    margin-right: 3px;
+}
+
+.details-h6 {
+    display: inline-block;
+}
+
+.details-card:hover .order-details-header-section .details-h6{
+    background: $bold-color;
+    color: white !important;
+}
+
+.details-card:hover .order-details-header-section .order-details-icon{
+    background: $bold-color;
+    color: white !important;
+}
+
+.details-card:hover {
+    background: $bold-color;
+    color: white !important;
+    border-radius: 5px;
+}
+
+.progress-section {
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 50px;
+    margin-top: 25px;
+}
+
+.alphatracker-progress-bar {
+    background-color: $bold-color !important;
+}
+
+.alphatracker-progress-bar p {
+    margin: 0;
+}
+
+.progress-section-label {
+    margin-top: 5px;
+}
+
+.first-label {
+
+}
+
+.second-label {
+
+}
+
+.third-label {
+    text-align: center;
+}
+
+.fourth-label {
+    text-align: right;
+}
+
 @media (max-width: 992px) {
 
     .tracker-btn {
         margin-top: 16px;
     }
 
+    .progress-section-label {
+        display: none;
+    }
+
+}
+
+@media (min-width: 993px) {
+
+    .alphatracker-progress-bar p{
+        display: none;
+    }
 }
 
 /* Keyframe Animations */
