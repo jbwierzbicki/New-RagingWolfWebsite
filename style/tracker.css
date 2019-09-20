@@ -7727,6 +7727,9 @@ b {
   color: white !important;
   border-radius: 5px; }
 
+.details-card {
+  padding-top: 16px; }
+
 .progress-section {
   width: 100%;
   margin-left: 0px;
