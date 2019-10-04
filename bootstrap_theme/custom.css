@@ -7794,11 +7794,6 @@ h5 {
   margin-top: 10px;
   margin-bottom: 10px; }
 
-.contact-btn:hover {
-  background: #9B0012 !important;
-  border: 2px solid #9B0012 !important;
-  transform: scale(1.025); }
-
 .track-btn {
   border: 2px solid #A7001E !important;
   box-sizing: border-box;
@@ -7812,9 +7807,6 @@ h5 {
   margin-top: 4px;
   margin-bottom: 4px;
   padding-bottom: 0; }
-
-.track-btn:hover {
-  transform: scale(1.025); }
 
 .slideshow {
   vertical-align: middle;
