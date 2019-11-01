@@ -8,8 +8,13 @@
   margin-right: 15px;
   background-color: rgba(250, 250, 250, 0.85); }
 
-.contact-row .col-lg-5, .col-lg-7 {
+.contact-row .col-lg-5,
+.col-lg-7 {
   height: auto; }
+
+.form-control:focus {
+  border-color: rgba(155, 0, 18, 0.15);
+  box-shadow: 0 0 0 0.2rem rgba(155, 0, 18, 0.25); }
 
 /* Contact Info Panel */
 .contact-info {
@@ -51,6 +56,39 @@
   color: #9B0012;
   padding-bottom: 0px;
   margin-bottom: 0px; }
+
+/* Existing Quote */
+.existing-quote-col {
+  margin-top: 1.5rem; }
+
+.existing-quote {
+  padding: 20px 0 !important;
+  margin-top: 25px;
+  margin-bottom: 40px;
+  margin-left: 2%;
+  margin-right: 2%;
+  background: rgba(255, 255, 255, 0.9);
+  border: 0.5px solid rgba(155, 0, 18, 0.085);
+  box-sizing: border-box;
+  border-radius: 5px; }
+
+#existing-quote-number {
+  text-align: center;
+  border: 1px solid #ced4da;
+  border-right-width: 0px;
+  height: 46px; }
+
+.existing-quote-btn {
+  background: white;
+  color: #9B0012;
+  border: 1px solid #ced4da;
+  border-left-width: 0px;
+  box-shadow: -5px 0px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 0px 5px 5px 0px; }
+
+.hover-wrapper:hover {
+  transition: 1s;
+  left: -1000px; }
 
 /* Contact Form */
 .contact-form {

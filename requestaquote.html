@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lustria">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    
+
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -85,11 +85,24 @@
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <form class="border p-5 contact-form"
-                        action="https://formspree.io/support@ragingwolfsolutions.com" method="POST">
+                    <div class="existing-quote">
+                        <h4 class="text-center">Already have a quote? Check it's status.</h4>
+                        <div class="mx-auto col-lg-8 existing-quote-col">
+                            <form>
+                                <div class="input-group mb-3">
+                                    <input type="text" id="existing-quote-number" class="form-control"
+                                        placeholder="Your quote number" name="existingquote">
+                                    <div class="input-group-append hover-wrapper">
+                                        <button class="btn existing-quote-btn" type="button"><i class="fas fa-truck"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <form class="border p-5 contact-form" action="https://formspree.io/support@ragingwolfsolutions.com"
+                        method="POST">
 
                         <h4 class="mb-4 text-center">Request a free quote</h4>
-
                         <select id="defaultSelect" class="browser-default custom-select mb-4"
                             placeholder="Request a quote" name="Subject">
                             <option value="Request a quote" selected="true">Request a quote
