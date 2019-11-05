@@ -68,7 +68,7 @@
   margin-left: 2%;
   margin-right: 2%;
   background: rgba(255, 255, 255, 0.9);
-  border: 0.5px solid rgba(155, 0, 18, 0.085);
+  border: 1px solid rgba(206, 212, 218, 0.75);
   box-sizing: border-box;
   border-radius: 5px; }
 
@@ -78,17 +78,26 @@
 
 #existing-quote-number {
   text-align: center;
-  border: none;
-  height: 46px; }
+  border: none; }
+
+.button-wrapper {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-right: 6px;
+  padding-left: 6px; }
 
 .existing-quote-btn {
   background: #9B0012;
   color: white;
-  margin: 5px; }
+  height: 26px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 150px !important; }
 
-.hover-wrapper:hover {
-  transition: 1s;
-  left: -1000px; }
+.existing-quote-btn:hover {
+  background-color: lightcoral; }
 
 /* Contact Form */
 .contact-form {
