@@ -105,6 +105,8 @@ $background-color: #FFFFFF;
     color: #ccc;
     padding: 10px 0;
     height: 150px;
+    font-family: $brand-font;
+    font-size: $title5-fontsize;
   }
   
   /* Add Animation - Zoom in the Modal */
@@ -123,7 +125,7 @@ $background-color: #FFFFFF;
     position: absolute;
     top: 15px;
     right: 35px;
-    color: #f1f1f1;
+    color: #f1f1f1 !important;
     font-size: 40px;
     font-weight: bold;
     transition: 0.3s;

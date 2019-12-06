@@ -7705,7 +7705,9 @@ a.text-dark:hover, a.text-dark:focus {
   text-align: center;
   color: #ccc;
   padding: 10px 0;
-  height: 150px; }
+  height: 150px;
+  font-family: Lustria;
+  font-size: 20px; }
 
 /* Add Animation - Zoom in the Modal */
 .modal-content, #caption {
@@ -7722,7 +7724,7 @@ a.text-dark:hover, a.text-dark:focus {
   position: absolute;
   top: 15px;
   right: 35px;
-  color: #f1f1f1;
+  color: #f1f1f1 !important;
   font-size: 40px;
   font-weight: bold;
   transition: 0.3s; }
