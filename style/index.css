@@ -7628,6 +7628,13 @@ a.text-dark:hover, a.text-dark:focus {
   .table .thead-dark th {
     color: inherit;
     border-color: #dee2e6; } }
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); }
+  40% {
+    transform: translateY(-10px); }
+  60% {
+    transform: translateY(-4px); } }
 /* Fonts */
 /* Font Sizes */
 /* Colors */
@@ -7739,5 +7746,9 @@ a.text-dark:hover, a.text-dark:focus {
 @media only screen and (max-width: 700px) {
   .modal-content {
     width: 100%; } }
+.bounce {
+  -moz-animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  animation: bounce 2s 3; }
 
 /*# sourceMappingURL=index.css.map */
