@@ -51,6 +51,11 @@ christmasModal = function(){
   captionText.innerHTML = "Happy Holidays from the PACK at Raging Wolf Solutions";
 }
 
+announcementModal = function(){
+  modal.style.display = "block";
+
+}
+
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
