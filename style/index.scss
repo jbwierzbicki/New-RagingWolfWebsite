@@ -96,28 +96,55 @@ $background-color: #FFFFFF;
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+
+  }
+
+  @media only screen and (max-width: 768px) {
+    #modalContainer {
+      max-height: calc(100vh - 210px);
+      overflow-y: auto;
+    }
+  }
+
+  #modalContainer {
+    background-color: white;
+    width: 80%;
+    max-width: 700px;
+    margin: auto;
+    height: auto;
+    border-radius: 6px;
   }
   
   /* Modal Content (Image) */
   .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
+    background: transparent !important;
+    width: 85%;
     max-width: 700px;
+  }
+
+  #img02 {
+    width: 60%;
+    min-width: 200px;
+    border: none;
+    padding-top: 25px;
+    padding-bottom: 20px;
   }
   
   /* Caption of Modal Image (Image Text) - Same Width as the Image */
   #caption {
+    text-align: left !important;
     margin: auto;
     display: block;
     width: 80%;
     max-width: 700px;
-    text-align: center;
-    color: #ccc;
+    color: black;
     padding: 10px 0;
-    height: 150px;
+    height: auto;
     font-family: $brand-font;
-    font-size: $title5-fontsize;
+    font-size: $title6-fontsize;
+    padding-bottom: 35px;
   }
   
   /* Add Animation - Zoom in the Modal */
