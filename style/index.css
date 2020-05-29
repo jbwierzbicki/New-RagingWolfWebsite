@@ -7725,7 +7725,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
 #caption {
-  text-align: left !important;
+  text-align: center !important;
   margin: auto;
   display: block;
   width: 80%;
