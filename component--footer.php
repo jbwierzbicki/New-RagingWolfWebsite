@@ -56,5 +56,14 @@
     })(document, 'script', 'https://sc.lfeeder.com/lftracker_v1_kn9Eq4R1Yyr7RlvP.js');
   })();
 </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L9SVTQ69KT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L9SVTQ69KT');
+</script>
 
     </footer>
