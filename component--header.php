@@ -26,11 +26,10 @@
               <a class="nav-item nav-link univ--header--container--navbar--collapse--navbar-nav--nav-item text-light" href="contact.php">Contact</a>
             </div>
             <div class="navbar-nav univ--header--container--navbar--collapse--navbar-nav2">
-              <a class="nav-item nav-link text-white d-none d-lg-block pr-4" href="#"><i class="fa fa-phone univ--header--fa"></i>(855) 965-3725</a>
               <a class="nav-item nav-link univ--header--container--navbar--collapse--navbar-nav2--nav-item font-weight-bold pl-3 pr-3 text-center d-none d-lg-block bg-transparent text-light" href="http://unstable.ragingwolfsolutions.com/startquote">Start a Quote</a>
             </div>
           </div>
-          <a class="univ--header--container--navbar--li font-weight-bold text-center d-lg-none text-white bg-transparent pl-3 pr-3" href="http://unstable.ragingwolfsolutions.com/startquote">Start a Quote</a>
+          <a class="univ--header--container--navbar--li font-weight-bold text-center d-lg-none text-white bg-transparent pl-3 pr-3" href="https://ragingwolfsolutions.com/startquote">Start a Quote</a>
         </nav>
       </div>
     </header>
