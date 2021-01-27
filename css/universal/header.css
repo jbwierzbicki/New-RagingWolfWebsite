@@ -1,0 +1,20 @@
+/* CSS Document */
+.univ--header {
+    background-color: #C4231C;
+  }
+.univ--header--container {
+}
+.univ--header--container--navbar {
+    font-family: 'Muli', sans-serif;
+}
+.univ--header--container--navbar--toggler {}
+.univ--header--container--navbar--collapse {}
+.univ--header--container--navbar--collapse--navbar-nav {}
+.univ--header--container--navbar--collapse--navbar-nav--nav-item {}
+.univ--header--container--navbar--collapse--navbar-nav2 {}
+.univ--header--container--navbar--collapse--navbar-nav2--nav-item {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;}
+
