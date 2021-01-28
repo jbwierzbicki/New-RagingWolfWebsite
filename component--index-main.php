@@ -14,16 +14,16 @@
           </div>
           <div class="modal-body bg-nero">
             <div class="d-flex flex-column">
-              <a href="services-expedited-ground.php" class="d-flex w-100 mb-2">
+              <a href="https://ragingwolfsolutions.com/services-expedited-ground" class="d-flex w-100 mb-2">
                 <button id="btn1" class="btn w-100 btn-outline-light">Expedited Ground</button>
               </a>
-              <a href="services-trucking.php" class="d-flex w-100 mb-2">
+              <a href="https://ragingwolfsolutions.com/services-trucking" class="d-flex w-100 mb-2">
                 <button id="btn2" class="btn w-100 btn-outline-light">Trucking</button>
               </a>
-              <a href="services-domestic-air-freight.php" class="d-flex w-100 mb-2">
+              <a href="https://ragingwolfsolutions.com/services-domestic-air-freight" class="d-flex w-100 mb-2">
                 <button id="btn3" class="btn w-100 btn-outline-light">Domestic Air Freight</button>
               </a>
-              <a href="services-customized-services.php" class="d-flex w-100">
+              <a href="https://ragingwolfsolutions.com/services-customized-services" class="d-flex w-100">
                 <button id="btn4" class="btn w-100 btn-outline-light">Customized Services</button>
               </a>
             </div>
