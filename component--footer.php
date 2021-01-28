@@ -28,7 +28,7 @@
       <div class="container wappler-block">
         <div class="row">
           <div class="col-12 col-md-8 col-xl-9">
-            <p>Copyright © 2020 All Rights Reserved by Raging Wolf Solutions.</p>
+            <p>Copyright © 2021 All Rights Reserved by Raging Wolf Solutions.</p>
           </div>
           <div class="col-12 col-md-4 col-xl-3">
           <ul class="social-icons">
@@ -57,7 +57,7 @@
   })();
 </script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-L9SVTQ69KT"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-L9SVTQ69KT"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
