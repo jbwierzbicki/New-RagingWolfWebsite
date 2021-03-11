@@ -1,9 +1,9 @@
 <html><head><link rel="stylesheet" href="css/stylesheet.css">
   <link href="https://fonts.googleapis.com/css2?family=Lustria&amp;family=Muli:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
 </head><!-- Wappler include  head-page="index.php" appconnect="local" is="dmx-app" bootstrap4="cdn" fontawesome_4="cdn" jquery_slim_33="cdn" components="{&quot;dmxBootstrap4Modal&quot;:{}}"-->
-<main class="index--main">
-  <div class="container-fluid d-lg-none style1 index--main--container-callus">
-    <h6 class="text-danger font-weight-bold text-center mb-0 pt-1 pb-1">Give us a call: <a href="tel:8559653725">(855) 965 - 3725</a></h6>
+  <main class="index--main">
+    <div class="container-fluid d-lg-none style1 index--main--container-callus">
+      <h6 class="text-danger font-weight-bold text-center mb-0 pt-1 pb-1">Give us a call: <a href="tel:8559653725">(855) 965 - 3725</a></h6>
   </div>
   <section class="index--main--section">
     <div class="modal" id="modal1" is="dmx-bs4-modal" tabindex="-1" role="dialog">
@@ -51,6 +51,15 @@
         </div>
         <div class="container wappler-block index--main--section--container2 pt-3 pl-2 pr-2">
           <?php include 'component--email-submission.php';?>
-          
         </div></section>
-    </main>
+  <div class="container wappler-block">
+    <div class="modal fade" id="modal-image" is="dmx-bs4-modal" tabindex="-1" role="dialog" show="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <img class="img-fluid" src="assets/images/Linkedin%20Ad%206.jpg" dmx-on:click="modalimage.hide()">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></main>
