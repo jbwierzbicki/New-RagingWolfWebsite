@@ -1,7 +1,7 @@
 <!doctype html>
 <html><head>
 <meta charset="UTF-8">
-<title>Untitled Document</title>
+  <title>Careers | Raging Wolf Solutions</title>
   <script src="dmxAppConnect/dmxAppConnect.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,12 +24,13 @@
   <link rel="stylesheet" href="dmxAppConnect/dmxValidator/dmxValidator.css">
   <script src="dmxAppConnect/dmxValidator/dmxValidator.js" defer=""></script>
   <script src="dmxAppConnect/dmxBootstrap4Modal/dmxBootstrap4Modal.js" defer=""></script>
+  <meta name="description" content="Join our team of transportation professionals and begin your new career in logistics today. Review our current job openings here.">
   </head>
   <body is="dmx-app" id="index">
     <?php include 'component--header.php';?>
     <main class="contact--main">
       <div class="modal" id="modal1" is="dmx-bs4-modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Current Opening</h5>
@@ -41,15 +42,16 @@
               <h5>Operations Coordinator</h5>
               <p class="font-italic">Raging Wolf Solutions – Twinsburg, OH</p>
               <p>Are you hungry? The PACK at Raging Wolf Solutions is looking to grow our operations team. If you share our commitment to exceeding customer expectations and providing outstanding service, consider joining our staff of experienced transportation professionals. Applications will be reviewed and prioritized based on…
-              <p wappler-command="editContent">Experience in or around the transportation industry
               </p>
-              <p wappler-command="editContent">Experience working as a 3PL or arranging freight transportation
+              <p wappler-command="editContent" class="ml-3">- Experience in or around the transportation industry
               </p>
-              <p wappler-command="editContent">History of strong service and communication
+              <p wappler-command="editContent" class="ml-3">- Experience working as a 3PL or arranging freight transportation
               </p>
-              <p wappler-command="editContent">An aptitude for building carrier relationships
+              <p wappler-command="editContent" class="ml-3">- History of strong service and communication
               </p>
-              <p wappler-command="editContent">Willingness to operate on call (after hours, paid)
+              <p wappler-command="editContent" class="ml-3">- An aptitude for building carrier relationships
+              </p>
+              <p wappler-command="editContent" class="ml-3">- Willingness to operate on call (after hours, paid)
               </p>
               <p wappler-command="editContent">It is our job to provide customers with outstanding service and competitive pricing. Any contacts or expertise you bring to the table can increase your likelihood of success.
               </p>
@@ -65,7 +67,7 @@
               </p>
               <p wappler-command="editContent">---GUIDANCE AND SUPPORT---
               </p>
-              <p wappler-command="editContent">Although our operations are based out of Twinsburg OH, the Raging Wolf team offers freight transportation across the country. Our digital marketing and promotional teams can help you seek out and target leads in your area. Our Sales team will also help you connect with new carriers and customers -- The Raging Wolf Way.</p></p>
+              <p wappler-command="editContent">Although our operations are based out of Twinsburg OH, the Raging Wolf team offers freight transportation across the country. Our digital marketing and promotional teams can help you seek out and target leads in your area. Our Sales team will also help you connect with new carriers and customers -- The Raging Wolf Way.</p><p></p>
           </div>
           <div class="modal-footer">
             <div class="d-flex w-100 mt-0 mb-0 justify-content-between">
@@ -85,7 +87,11 @@
           <div class="row justify-content-center h-50">
             <div class="col-auto">
               <h1 class="text-light text-left">Interested in joining our team?</h1>
-              </div>
+              <p class="text-white-50">Review our open positions below and check back for more openings in the future.</p>
+              <p class="text-light mb-2">Current Openings:</p>
+              <div class="d-flex">
+                <button id="btn1" class="btn bg-dark text-light pl-4 pr-4" data-toggle="modal" data-target="#modal1"><i class="fa fa-user"></i>&nbsp; Operations Coordinator - Team Member</button>
+              </div></div>
           </div>
         </div>
       </section>
