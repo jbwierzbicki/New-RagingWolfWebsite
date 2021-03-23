@@ -24,6 +24,7 @@
               </div>
               <a class="nav-item nav-link univ--header--container--navbar--collapse--navbar-nav--nav-item text-light" href="https://ragingwolf.secure.force.com/tracker">Track a Shipment</a>
               <a class="nav-item nav-link univ--header--container--navbar--collapse--navbar-nav--nav-item text-light" href="https://ragingwolfsolutions.com/contact">Contact</a>
+              <a class="nav-item nav-link univ--header--container--navbar--collapse--navbar-nav--nav-item text-light" href="https://ragingwolfsolutions.com/careers">Careers</a>
             </div>
             <div class="navbar-nav univ--header--container--navbar--collapse--navbar-nav2">
               <a class="nav-item nav-link text-light mr-2 font-weight-bold" href="tel:855-965-3725"><i class="fa fa-phone"></i> (855) 965-3725</a>
