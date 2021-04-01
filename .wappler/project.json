@@ -9,7 +9,7 @@
       "ftpServer": "mi3-ss50.a2hosting.com",
       "ftpPort": 21,
       "ftpUser": "jwmadeco",
-      "ftpPassword": "069ee8add2b7f3fa62d3215137bc",
+      "ftpPassword": "31d9aee6e496dae1718f",
       "ftpRemoteFolder": "public_html/betarws.jw-made.com"
     },
     {
@@ -20,7 +20,7 @@
       "ftpPort": 21,
       "ftpUser": "kvpe7tyxlnhj",
       "ftpRemoteFolder": "subdomains/unstable.ragingwolfsolutions.com",
-      "ftpPassword": "3dd0a9fbcbc9ecee"
+      "ftpPassword": "31d9aee6e496dae1718f"
     }
   ],
   "frameworks": [],

@@ -1,7 +1,7 @@
 <!doctype html>
 <html><head>
 <meta charset="UTF-8">
-<title>Untitled Document</title>
+  <title>Alpha Tracking | Raging Wolf Solutions</title>
   <script src="dmxAppConnect/dmxAppConnect.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -33,6 +33,46 @@
         <div class="container contact--main--section--container h-100">
           <div class="row justify-content-center">
             <div class="col-auto col-12">
+              <div class="modal" id="modal2" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Currently Unavailable</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <p class="mb-2">Automated tracking is currently unavailable. To receive an update or ask any other questions about this shipment, email us directly at&nbsp;<a href="#"><b>support@ragingwolfsolutions.com</b></a></p>
+                      <p class="text-danger mb-1">Please remember to include your Load Reference Number.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <a href="mailto:support@ragingwolfsolutions.com">
+                        <button type="button" class="btn btn-danger"><i class="fa fa-envelope"></i>&nbsp;Send Email</button></a>
+                      <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal" id="modal1" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Finding Your Load Reference Number</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="assets/images/BOL-LoadRef.jfif" class="img-fluid mb-3">
+                      <p class="mb-1">Your Load Reference Number is located in the upper right hand corner of the Bill of Lading.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="modal" id="trackingmodal" is="dmx-bs4-modal" tabindex="-1" role="dialog">
                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                   <div class="modal-content">
@@ -53,22 +93,18 @@
                           </thead>
                           <tbody>
                             <tr>
-                              <td class="table-light">Fri Oct 25 19:30:49 GMT 2019</td>
-                              <td class="table-light">Delivered</td>
-                              <td class="table-light">Tue Oct 29 00:00:00 GMT 2019</td>
+                              <td class="table-light">Unavailable</td>
+                              <td class="table-light">Unavailable</td>
+                              <td class="table-light">Unavailable</td>
                             </tr>
                             <tr>
                               <th scope="col" class="bg-secondary pt-2 pb-2 text-light"><i class="fa fa-location-arrow"></i>&nbsp;Pickup Location</th>
                               <th scope="col" class="bg-secondary pt-2 pb-2 text-light"><i class="fa fa-map-marker"></i>&nbsp;Destination</th>
                               <th scope="col" class="bg-secondary pt-2 pb-2 text-light"><i class="fa fa-calendar-check-o"></i>&nbsp;Expected Delivery</th></tr>
                             <tr>
-                              <td class="table-light">5700 E. AIRPORT DRIVE
-                                <br>ONTARIO, CA
-                                <br>90660</td>
-                              <td class="table-light">325 CAMPUS DRIVE
-                                <br>AURORA, OH
-                                <br>44202</td>
-                              <td class="table-light">Fri Oct 25 00:00:00 GMT 2019</td>
+                              <td class="table-light">Unavailable</td>
+                              <td class="table-light">Unavailable<br></td>
+                              <td class="table-light">Unavailable</td>
                             </tr></tbody>
                         </table>
                       </div>
@@ -81,12 +117,12 @@
                           </thead>
                           <tbody>
                             <tr>
-                              <td class="table-light">These are some sample notes and information, please disregard.</td>
+                              <td class="table-light">Unavailable</td>
                             </tr>
                             <tr>
                               <th scope="col" class="bg-secondary pt-2 pb-2 text-light"><i class="fa fa-exclamation-triangle"></i>&nbsp;Latest Updates</th></tr>
                             <tr>
-                              <td class="table-light">Latest updates would go here, if there were any for this shipment.</td>
+                              <td class="table-light">No updates to display.</td>
                             </tr></tbody>
                         </table>
                       </div>
@@ -105,10 +141,12 @@
                 <h5 class="text-uppercase text-yellow">alpha tracking</h5>
                 <h1 class="text-light">Want to see your shipment status?</h1>
                 <h5 class="mb-4 text-white-50">Alpha Tracking tells you the status of your shipment in our system. We just need to know...</h5>
-                <h5 class="text-light pt-2">What is your Alpha Tracking Number?</h5>
-                  <input id="alphatrackingnumber" name="alphatrackingnumber" class="form-control mb-3" placeholder="Looks like XXXX-XXXXXX" dmx-bs-tooltip="&quot;You can find your Alpha Tracking Number in the upper-right hand corner of your BOL. Make sure to include the dash in your submission.&quot;" data-trigger="click" data-placement="left" data-msg-required="" is="dmx-input" data-rule-pattern="[a-z0-9._%+-]+-[a-z0-9._%+-]">
-                  <div class="d-flex justify-content-end pt-2">
-                  <button id="trackingsubmit" class="btn btn-lg w-auto btn-red text-light mt-4 pl-5 pr-5" dmx-on:click="trackingmodal.show()">Track &gt;&gt;</button></div>
+                  <h5 class="text-light pt-2">What is your Load Reference Number?</h5>
+                  <input id="alphatrackingnumber" name="alphatrackingnumber" class="form-control mb-3" placeholder="Looks like XXXXX" dmx-bs-tooltip="&quot;You can find your Load Reference Number in the upper-right hand corner of your BOL&quot;" data-placement="left" data-msg-required="" is="dmx-input" data-msg-pattern="" data-trigger="click">
+                  <div class="d-flex pt-2 justify-content-between align-items-end">
+                    <a href="" dmx-on:mousedown="modal1.show()">
+                      <p class="text-primary mb-2">Find my Load Reference Number</p></a>
+                    <button id="trackingsubmit" class="btn btn-lg w-auto btn-red text-light pl-5 pr-5" dmx-on:click="modal2.show()">Track &gt;&gt;</button></div>
                 </section>
               </form>
             </div>
