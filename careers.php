@@ -83,14 +83,14 @@
       </div>
       </div>
       <section class="contact--main--section">
-        <div class="container contact--main--section--container h-100">
-          <div class="row justify-content-center h-50">
-            <div class="col-auto">
+        <div class="contact--main--section--container h-100 container-lg">
+          <div class="row justify-content-center h-50 row-cols-1 w-100">
+            <div class="col-12">
               <h1 class="text-light text-left">Interested in joining our team?</h1>
               <p class="text-white-50">Review our open positions below and check back for more openings in the future.</p>
               <p class="text-light mb-2">Current Openings:</p>
               <div class="d-flex">
-                <button id="btn1" class="btn bg-dark text-light pl-4 pr-4" data-toggle="modal" data-target="#modal1"><i class="fa fa-user"></i>&nbsp; Operations Coordinator - Team Member</button>
+                <button id="btn1" class="btn bg-dark text-light pl-3 pr-3" data-toggle="modal" data-target="#modal1"><i class="fa fa-user"></i>&nbsp; Operations Coordinator - Team Member</button>
               </div></div>
           </div>
         </div>
