@@ -39,7 +39,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <h5>Operations Coordinator</h5>
+              <h5>Logistics Analyst (Operations)</h5>
               <p class="font-italic">Raging Wolf Solutions – Twinsburg, OH</p>
               <p>Are you hungry? The PACK at Raging Wolf Solutions is looking to grow our operations team. If you share our commitment to exceeding customer expectations and providing outstanding service, consider joining our staff of experienced transportation professionals. Applications will be reviewed and prioritized based on…
               </p>
@@ -76,7 +76,7 @@
               </a>
               <div class="btn-group" role="group" aria-label="Button Group">
                 <a href=""><button type="button" class="btn btn-secondary ml-2 mr-2" data-dismiss="modal">Close</button></a>
-                <a href="https://www.linkedin.com/jobs/view/1413126750"><button type="button" class="btn btn-primary ml-2 mr-2">Apply on  <i class="fa fa-linkedin-square"></i></button></a></div>
+                <a href="https://www.indeed.com/job/logistics-analyst-521097529996fb73"><button type="button" class="btn btn-primary ml-2 mr-2">Apply on Indeed</button></a></div>
             </div>
           </div>
         </div>
@@ -90,7 +90,9 @@
               <p class="text-white-50">The 'PACK' continues to expand! Review our open positions below and check back for more openings in the future.</p>
               <p class="text-light mb-2">Current Openings:</p>
               <div class="d-flex">
-                <p class="text-light font-italic">There are currently no positions available. Check back later!</p>
+                <button id="btn1" class="btn btn-secondary pl-3 pr-3" data-toggle="modal" data-target="#modal1">Operations Team -- Logistics Analyst</button>
+                <p class="text-light font-italic d-none">There are currently no positions available. Check back later!
+                </p>
               </div></div>
           </div>
         </div>
