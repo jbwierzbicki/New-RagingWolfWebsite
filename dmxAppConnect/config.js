@@ -156,5 +156,99 @@ dmx.config({
         ]
       }
     ]
+  },
+  "alphatrackTEST": {
+    "api2": [
+      {
+        "type": "array",
+        "name": "data",
+        "sub": [
+          {
+            "type": "object",
+            "name": "attributes",
+            "sub": [
+              {
+                "type": "text",
+                "name": "type"
+              },
+              {
+                "type": "text",
+                "name": "url"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "name": "Load_Reference__c"
+          },
+          {
+            "type": "text",
+            "name": "Delivery_Arrival_Date__c"
+          },
+          {
+            "type": "text",
+            "name": "FreightTM__Delivery_City__c"
+          },
+          {
+            "type": "text",
+            "name": "FreightTM__Delivery_State__c"
+          },
+          {
+            "type": "text",
+            "name": "FreightTM__Pickup_City__c"
+          },
+          {
+            "type": "text",
+            "name": "FreightTM__Pickup_State__c"
+          },
+          {
+            "type": "text",
+            "name": "FreightTM__Status__c"
+          },
+          {
+            "type": "text",
+            "name": "Pickup_Arrival_Date__c"
+          },
+          {
+            "type": "text",
+            "name": "Id"
+          }
+        ]
+      },
+      {
+        "type": "object",
+        "name": "headers",
+        "sub": [
+          {
+            "type": "text",
+            "name": "date"
+          },
+          {
+            "type": "text",
+            "name": "cache-control"
+          },
+          {
+            "type": "text",
+            "name": "vary"
+          },
+          {
+            "type": "text",
+            "name": "strict-transport-security"
+          },
+          {
+            "type": "text",
+            "name": "content-encoding"
+          },
+          {
+            "type": "text",
+            "name": "transfer-encoding"
+          },
+          {
+            "type": "text",
+            "name": "content-type"
+          }
+        ]
+      }
+    ]
   }
 });
