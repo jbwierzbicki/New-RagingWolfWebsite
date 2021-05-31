@@ -33,15 +33,19 @@ cargo
 trucking
 contact">
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147350949-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-147350949-1');
-</script>
-
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-147350949-1"></script>
+   <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-147350949-1');
+  </script>
+  <script>
+    function onSubmit(token) {
+      document.getElementById("demo-form").submit();
+   }
+ </script>
   </head>
   <body is="dmx-app" id="index">
     <?php include 'component--header.php';?>
@@ -62,7 +66,7 @@ contact">
                 <h5 class="text-light">How can we help you?</h5>
                 <textarea id="text1" class="form-control" name="Message" required="" data-msg-required="Please provide details for your request."></textarea>
                 <div class="d-flex justify-content-end pt-2">
-                  <button id="contactsubmit" class="btn btn-lg w-auto btn-red text-light mt-4 pl-5 pr-5" onclick="quote1next()" type="submit">Send &gt;&gt;</button></div>
+                  <button id="contactsubmit" class="btn btn-lg w-auto btn-red text-light mt-4 pl-5 pr-5 g-recaptcha" data-sitekey="6LdCxgAbAAAAADuWhUWYFHyRMKkLsvBRKRAj_OjT" data-callback="onSubmit" onclick="quote1next()" type="submit">Send &gt;&gt;</button></div>
                 </section>
               </form>
             </div>
