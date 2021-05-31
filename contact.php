@@ -33,7 +33,13 @@ cargo
 trucking
 contact">
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script>
+    $('#contactform').submit(function(){    
+      if ($('input#website').val().length != 0) {
+        return false;
+      } 
+    });
+  </script>
   <script>
     function onSubmit(token) {
       document.getElementById("contactform").submit();
@@ -58,9 +64,9 @@ contact">
                 <input id="email" name="email" class="form-control mb-3" placeholder="email@address.com" type="email" data-rule-email="" required="" data-msg-required="An email is required.">
                 <h5 class="text-light">How can we help you?</h5>
                 <textarea id="text1" class="form-control" name="Message" required="" data-msg-required="Please provide details for your request."></textarea>
+                <input id="website" name="website" type="text" value="">
                 <div class="d-flex justify-content-end pt-2">
-                  <div class="g-recaptcha" data-sitekey="6LedAQEbAAAAADSztQ3ltOsAcJUScGvjZWw1UfPU"></div>
-                  <button id="contactsubmit" class="btn btn-lg w-auto btn-red text-light mt-4 pl-5 pr-5"  type="submit">Send &gt;&gt;</button></div>
+                  <button id="contactsubmit" class="btn btn-lg w-auto btn-red text-light mt-4 pl-5 pr-5" type="submit">Send &gt;&gt;</button></div>
                 </section>
               </form>
             </div>
