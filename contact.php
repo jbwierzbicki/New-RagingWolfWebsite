@@ -55,12 +55,11 @@ contact">
                 <h5 class="mb-4 text-white-50">We are standing by 24/7 to address any of your questions or concerns. Just tell us...</h5>
                 <h5 class="text-light pt-2">What is your name?</h5>
                 <input id="Name" name="Name" class="form-control mb-3" placeholder="Your name or company name">
+                  <input id="cant_touch_this" name="cant_touch_this" class="invisible form-control" placeholder="Your name or company name">
                 <h5 class="text-light">What is your email address?</h5>
                 <input id="email" name="email" class="form-control mb-3" placeholder="email@address.com" type="email" data-rule-email="" required="" data-msg-required="An email is required.">
                 <h5 class="text-light">How can we help you?</h5>
                 <textarea id="text1" class="form-control" name="Message" required="" data-msg-required="Please provide details for your request."></textarea>
-                  <div class="d-none">
-                    <input id="cant_touch_this" name="cant_touch_this" type="text" value=""></div>
                   <div class="d-flex justify-content-end pt-2">
                   <button id="contactsubmit" class="btn btn-lg w-auto btn-red text-light mt-4 pl-5 pr-5" type="submit">Send &gt;&gt;</button></div>
                 </section>
