@@ -40,11 +40,13 @@ contact">
       } 
     });
   </script>
+  <!-- 
   <script>
     function onSubmit(token) {
       document.getElementById("contactform").submit();
    }
  </script>
+-->
   </head>
   <body is="dmx-app" id="index">
     <?php include 'component--header.php';?>
