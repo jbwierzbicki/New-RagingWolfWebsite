@@ -66,7 +66,7 @@ contact">
                 <h5 class="text-light">How can we help you?</h5>
                 <textarea id="text1" class="form-control" name="Message" required="" data-msg-required="Please provide details for your request."></textarea>
                 <div class="d-flex justify-content-end pt-2">
-                  <button id="contactsubmit" class="btn btn-lg w-auto btn-red text-light mt-4 pl-5 pr-5 g-recaptcha" data-sitekey="6LdCxgAbAAAAADuWhUWYFHyRMKkLsvBRKRAj_OjT" data-callback="onSubmit" onclick="quote1next()" type="submit">Send &gt;&gt;</button></div>
+                  <button id="contactsubmit" class="btn btn-lg w-auto btn-red text-light mt-4 pl-5 pr-5 g-recaptcha" data-sitekey="6LdCxgAbAAAAADuWhUWYFHyRMKkLsvBRKRAj_OjT" data-callback="onSubmit" data-action="submit" onclick="quote1next()" type="submit">Send &gt;&gt;</button></div>
                 </section>
               </form>
             </div>
