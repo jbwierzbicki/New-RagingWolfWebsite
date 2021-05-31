@@ -43,7 +43,7 @@ contact">
   </script>
   <script>
     function onSubmit(token) {
-      document.getElementById("demo-form").submit();
+      document.getElementById("contactform").submit();
    }
  </script>
   </head>
