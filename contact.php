@@ -33,14 +33,7 @@ cargo
 trucking
 contact">
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-147350949-1"></script>
-   <script src="https://www.google.com/recaptcha/api.js"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-147350949-1');
-  </script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script>
     function onSubmit(token) {
       document.getElementById("contactform").submit();
@@ -66,7 +59,8 @@ contact">
                 <h5 class="text-light">How can we help you?</h5>
                 <textarea id="text1" class="form-control" name="Message" required="" data-msg-required="Please provide details for your request."></textarea>
                 <div class="d-flex justify-content-end pt-2">
-                  <button id="contactsubmit" class="btn btn-lg w-auto btn-red text-light mt-4 pl-5 pr-5 g-recaptcha" data-sitekey="6LdCxgAbAAAAADuWhUWYFHyRMKkLsvBRKRAj_OjT" data-callback="onSubmit" data-action="submit" onclick="quote1next()" type="submit">Send &gt;&gt;</button></div>
+                  <div class="g-recaptcha" data-sitekey="6LedAQEbAAAAADSztQ3ltOsAcJUScGvjZWw1UfPU"></div>
+                  <button id="contactsubmit" class="btn btn-lg w-auto btn-red text-light mt-4 pl-5 pr-5"  type="submit">Send &gt;&gt;</button></div>
                 </section>
               </form>
             </div>
