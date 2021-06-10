@@ -401,6 +401,10 @@ a {
   height: 80vh;
   min-height: 680px;
 }
+.carriers--main--section {
+  background-color: #232323;
+  min-height: 680px;
+}
 .contact--main--section--container {
   display: -webkit-box;
   display: -ms-flexbox;
