@@ -33,12 +33,13 @@
       <section class="contact--main--section">
         <div class="contact--main--section--container h-100 container">
           <div class="row justify-content-center row-cols-1 w-100 h-100 align-items-center">
-            <div class="col-12 pl-1 pr-1">
+            <div class="pb-4 pl-1 pr-1 col-12 col-md-10">
+              <h5 class="text-uppercase text-yellow">carrier connection</h5>
               <h1 class="text-light text-left">Interested in partnering with the PACK?</h1>
-              <p class="text-white-50 mb-4">Raging Wolf Solutions is always looking to expand its base of trusted, dedicated freight carrier partners. If you'd like to move freight with us, please begin by downloading the PDF below.</p>
+              <p class="text-white-50 mb-4" style="max-width: 770px !important">Raging Wolf Solutions is always looking to expand its base of trusted, dedicated freight carrier partners. If you'd like to move freight with us, please begin by downloading the PDF below.</p>
               <form id="carrierform">
                 <div class="row">
-                  <div class="col text-left">
+                  <div class="text-left col-12">
                     <h5 class="text-light">1. Save a copy of our carrier packet.</h5>
                     <a target="_blank" rel="noopener noreferrer" href="assets/Updated%20Raging%20Wolf%20Carrier%20Packet%206-1-2021.pdf">
                       <button id="btn1" class="btn btn-secondary mb-4 pt-3 pb-3 pl-3 pr-3"><i class="fa fa-download"></i>&nbsp;Download Carrier Packet</button>
