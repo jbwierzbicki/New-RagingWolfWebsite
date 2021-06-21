@@ -21,7 +21,9 @@
               <a href="https://ragingwolfsolutions.com/"><li class="list-group-item bg-transparent univ--footer--container--row--col--li border-0 pt-0 pb-0 pl-0 pr-0">Home</li></a>
               <a href="https://ragingwolfsolutions.com/alphatrack"><li class="list-group-item bg-transparent univ--footer--container--row--col--li border-0 pt-0 pb-0 pl-0 pr-0">Track a Shipment</li></a>
               <a href="https://ragingwolfsolutions.com/startquote"><li class="list-group-item bg-transparent univ--footer--container--row--col--li border-0 pt-0 pb-0 pl-0 pr-0">Start a Quote</li></a>
+              <a href="https://ragingwolfsolutions.com/rwscarriers"><li class="list-group-item bg-transparent univ--footer--container--row--col--li border-0 pt-0 pb-0 pl-0 pr-0">Carriers</li></a>
               <a href="https://ragingwolfsolutions.com/contact"><li class="list-group-item bg-transparent univ--footer--container--row--col--li border-0 pt-0 pb-0 pl-0 pr-0">Contact Us</li></a>
+              <a href="https://ragingwolfsolutions.com/careers"><li class="list-group-item bg-transparent univ--footer--container--row--col--li border-0 pt-0 pb-0 pl-0 pr-0">Careers</li></a>
             </ul></div>
         </div>
         <hr></div>
