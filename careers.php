@@ -86,12 +86,13 @@
         <div class="contact--main--section--container h-100 container-lg">
           <div class="row justify-content-center h-50 row-cols-1 w-100">
             <div class="col-12">
+              <h5 class="text-uppercase text-yellow">career opportunities</h5>
               <h1 class="text-light text-left">Interested in joining our team?</h1>
               <p class="text-white-50">The 'PACK' continues to expand! Review our open positions below and check back for more openings in the future.</p>
               <p class="text-light mb-2">Current Openings:</p>
               <div class="d-flex">
-                <button id="btn1" class="btn btn-secondary pl-3 pr-3" data-toggle="modal" data-target="#modal1">Operations Team -- Logistics Analyst</button>
-                <p class="text-light font-italic d-none">There are currently no positions available. Check back later!
+                <button id="btn1" class="btn btn-secondary pl-3 pr-3 d-none" data-toggle="modal" data-target="#modal1">Operations Team -- Logistics Analyst</button>
+                <p class="text-light font-italic">There are currently no positions available. Check back later!
                 </p>
               </div></div>
           </div>
