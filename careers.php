@@ -91,7 +91,7 @@
               <p class="text-white-50">The 'PACK' continues to expand! Review our open positions below and check back for more openings in the future.</p>
               <p class="text-light mb-2">Current Openings:</p>
               <div class="d-flex">
-                <button id="btn1" class="btn btn-secondary pl-3 pr-3" data-toggle="modal" data-target="#modal1">Operations Team -- Logistics Analyst</button>
+                <button id="btn1" class="btn btn-secondary pl-3 pr-3" data-toggle="modal" data-target="#modal1">Operations Team -- Transportation Logistics Specialist</button>
                 <p class="text-light font-italic d-none">There are currently no positions available. Check back later!
                 </p>
               </div></div>
