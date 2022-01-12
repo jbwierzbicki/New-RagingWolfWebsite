@@ -18,3 +18,7 @@ function formatter_contains($val, $str) {
 function formatter_between($val, $a, $b) {
     return $a <= $val && $val <= $b;
 }
+
+function formatter_inRange($val, $min, $max) {
+    return $val >= $min && $val <= $max;
+}

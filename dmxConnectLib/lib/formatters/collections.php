@@ -27,6 +27,58 @@ function formatter_last($val, $count) {
 
 function formatter_where($val, $prop, $operator, $value) {
     if (!is_array($val)) return array($val);
+
+    $filtered = array();
+
+    foreach ($val as $key => $obj) {
+        $o = (array)$obj;
+        $v = $o[$prop];
+        $add = FALSE;
+
+        switch ($operator) {
+            case 'startsWith':
+                $add = strpos(strval($v), strval($value)) === 0;
+            break;
+            case 'endsWith':
+                $value = strval($value);
+                $add = substr(strval($v), -strlen($value)) == $value;
+            break;
+            case 'contains':
+                $add = strpos(strval($v), strval($value)) !== FALSE;
+            break;
+            case '===':
+                $add = $v === $value;
+            break;
+            case '==':
+                $add = $v == $value;
+            break;
+            case '!==':
+                $add = $v !== $value;
+            break;
+            case '!=':
+                $add = $v != $value;
+            break;
+            case '<':
+                $add = $v < $value;
+            break;
+            case '<=':
+                $add = $v <= $value;
+            break;
+            case '>':
+                $add = $v > $value;
+            break;
+            case '>=':
+                $add = $v >= $value;
+            break;
+        }
+
+        if ($add) {
+            $filtered[] = $obj;
+        }
+    }
+
+    return $filtered;
+    /*
     return array_filter($val, function($o) use ($prop, $operator, $value) {
         $o = (array)$o;
         $v = $o[$prop];
@@ -59,6 +111,7 @@ function formatter_where($val, $prop, $operator, $value) {
 
         return TRUE;
     });
+    */
 }
 
 function formatter_unique($val, $prop = NULL) {
@@ -70,6 +123,7 @@ function formatter_groupBy($val, $prop) {
     if (!is_array($val)) return NULL;
     $groups = array();
     foreach ($val as $item) {
+        $item = (array)$item;
         $key = strval($item[$prop]);
 
         if (!array_key_exists($key, $groups)) {
@@ -84,12 +138,14 @@ function formatter_groupBy($val, $prop) {
 function formatter_sort($val, $prop = NULL) {
     if (!is_array($val)) return $val;
     if ($prop != NULL) {
-        return usort($val, function($a, $b) use ($prop) {
+        usort($val, function($a, $b) use ($prop) {
             if ($a[$prop] == $b[$prop]) return 0;
             return ($a[$prop] < $b[$prop]) ? -1 : 1;
         });
+    } else {
+        sort($val);
     }
-    return sort($val);
+    return $val;
 }
 
 function formatter_randomize($val) {
@@ -142,4 +198,9 @@ function formatter_keys($val) {
 function formatter_values($val) {
     if (!is_array($val) && !is_object($val)) return array();
     return array_values((array)$val);
+}
+
+function formatter_flatten($val, $prop) {
+    if (!is_array($val) && !is_object($val)) return array();
+    return array_column((array)$val, $prop);
 }

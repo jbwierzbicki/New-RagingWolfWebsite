@@ -57,13 +57,12 @@ class Response
     public $status = 200;
     public $charset = 'utf-8';
     public $contentType = NULL;
-    public $headers = array(
-        "X-Generator" => "DMXzone Server Connect"
-    );
+    public $headers = array();
     public $buffer = array();
 
     public function __construct($app) {
         $this->app = $app;
+        $this->addHeader('X-Generator', 'DMXzone Server Connect');
     }
 
     public function setCookie($name, $value, $options) {
@@ -72,22 +71,30 @@ class Response
         if (isset($options->expires)) {
             $sign = $options->expires < 0 ? '-' : '+';
             $expires = gmdate(DATE_COOKIE, strtotime($sign . abs($options->expires) . ' days'));
-            $cookie .= ';expires=' . $expires;
+            $cookie .= '; Expires=' . $expires;
         }
 
         if (isset($options->path)) {
-            $cookie .= ';path=' . $options->path;
+            $cookie .= '; Path=' . $options->path;
         }
 
         if (isset($options->domain)) {
-            $cookie .= ';domain=' . $options->domain;
+            $cookie .= '; Domain=' . $options->domain;
+        }
+
+        if (isset($options->secure)) {
+            $cookie .= '; Secure';
         }
 
         if (isset($options->httpOnly)) {
-            $cookie .= ';HttpOnly';
+            $cookie .= '; HttpOnly';
         }
 
-        $this->addHeader('Set-Cookie', $cookie);
+        if (isset($options->sameSite)) { // Strict, Lax, None
+            $cookie .= ';SameSite=' . $options->sameSite;
+        }
+
+        $this->addHeader('Set-Cookie', $cookie, TRUE);
     }
 
     public function clearCookie($name, $options) {
@@ -105,8 +112,12 @@ class Response
         return $this;
     }
 
-    public function addHeader($name, $value) {
-        $this->headers[$name] = $value;
+    public function addHeader($name, $value, $append = FALSE) {
+        $this->headers[] = array(
+            'name' => $name,
+            'value' => $value,
+            'append' => $append
+        );
         return $this;
     }
 
@@ -151,8 +162,8 @@ class Response
 
         header('Content-Type: application/json; charset=' . $this->charset);
 
-        foreach ($this->headers as $name => $value) {
-            header($name . ': ' . $value);
+        foreach ($this->headers as $header) {
+            header($header['name'] . ': ' . $header['value'], !$header['append']);
         }
 
         $this->jsonToOutput($data);
@@ -223,8 +234,8 @@ class Response
 
         header('Content-Type: ' . $this->contentType . '; charset=' . $this->charset);
 
-        foreach ($this->headers as $name => $value) {
-            header($name . ': ' . $value);
+        foreach ($this->headers as $header) {
+            header($header['name'] . ': ' . $header['value'], !$header['append']);
         }
 
         exit(implode($this->buffer));

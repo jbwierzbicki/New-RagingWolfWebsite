@@ -140,6 +140,18 @@ class image extends Module
         $image->crop($options->x, $options->y, $options->width, $options->height);
     }
 
+    public function cover($options) {
+        option_require($options, 'instance');
+        option_require($options, 'width');
+        option_require($options, 'height');
+        option_default($options, 'position', 'center');
+
+        $options = $this->app->parseObject($options);
+        $image = $this->getInstance($options->instance);
+
+        $image->cover($options->width, $options->height, $options->position);
+    }
+
     public function watermark($options) {
         option_require($options, 'instance');
         option_require($options, 'x');

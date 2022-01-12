@@ -17,7 +17,7 @@ class dbupdater extends Module
 
         $options->sql->type = 'insert';
 
-        $connection = $this->app->scope->get($options->connection);
+        $connection = Connection::get($this->app, $options->connection);
 
         if ($connection === NULL) {
             throw new \Exception('Connection "' . $options->connection . '" not found.');
@@ -47,7 +47,7 @@ class dbupdater extends Module
 
         $options->sql->type = 'update';
 
-        $connection = $this->app->scope->get($options->connection);
+        $connection = Connection::get($this->app, $options->connection);
 
         if ($connection === NULL) {
             throw new \Exception('Connection "' . $options->connection . '" not found.');
@@ -77,7 +77,7 @@ class dbupdater extends Module
 
         $options->sql->type = 'delete';
 
-        $connection = $this->app->scope->get($options->connection);
+        $connection = Connection::get($this->app, $options->connection);
 
         if ($connection === NULL) {
             throw new \Exception('Connection "' . $options->connection . '" not found.');
@@ -106,7 +106,7 @@ class dbupdater extends Module
 
 		$options = $this->parseOptions($options);
 
-		$connection = $this->app->scope->get($options->connection);
+		$connection = Connection::get($this->app, $options->connection);
 
 		if ($connection === NULL) {
 			throw new \Exception('Connection "' . $options->connection . '" not found.');
@@ -115,7 +115,7 @@ class dbupdater extends Module
 		$query = $options->sql->query;
 		$params = array();
 
-        $query = preg_replace_callback('/((?<=[^:])[:@]\w+|\?)/', function($matches) use (&$params, $options) {
+        $query = preg_replace_callback('/((?<=[^:])[:@][a-zA-Z_]\w*|\?)/', function($matches) use (&$params, $options) {
             $match = $matches[0];
 
             if ($match == '?') {
@@ -146,7 +146,7 @@ class dbupdater extends Module
 
 		$options = $this->app->parseObject($options);
 
-        $connection = $this->app->scope->get($options->connection);
+        $connection = Connection::get($this->app, $options->connection);
 
         if ($connection === NULL) {
             throw new \Exception('Connection "' . $options->connection . '" not found.');
@@ -165,7 +165,7 @@ class dbupdater extends Module
         }
 
         if (isset($options->sql->wheres) && isset($options->sql->wheres->rules)) {
-            if (isset($options->sql->wheres->conditional) && !$this->app->parseObject($options->sql->wheres->conditional)) {
+            if (!empty($options->sql->wheres->conditional) && !$this->app->parseObject($options->sql->wheres->conditional)) {
                 unset($options->sql->wheres);
             } else {
                 $options->sql->wheres->rules = array_filter($options->sql->wheres->rules, array($this, 'filterRules'));
@@ -181,7 +181,7 @@ class dbupdater extends Module
 
     protected function filterRules($rule) {
         if (!isset($rule->rules)) return TRUE;
-        if (isset($rule->conditional) && !$this->app->parseObject($rule->conditional)) return FALSE;
+        if (!empty($rule->conditional) && !$this->app->parseObject($rule->conditional)) return FALSE;
         $rule->rules = array_filter($rule->rules, array($this, 'filterRules'));
         return !empty($rule->rules);
     }

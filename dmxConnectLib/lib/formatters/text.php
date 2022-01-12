@@ -144,3 +144,11 @@ function formatter_stripTags($val) {
 function formatter_wordCount($val) {
     return str_word_count(strval($val));
 }
+
+function formatter_length($val) {
+    return strlen(strval($val));
+}
+
+function formatter_urlencode($val) {
+    return urlencode(strval($val));
+}

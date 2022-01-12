@@ -37,9 +37,26 @@ class App
         $this->response = new Response($this);
         $this->session = new Session();
 
+        $this->db = array();
+        $this->mail = array();
+        $this->auth = array();
+        $this->oauth = array();
+        $this->s3 = array();
+        $this->jwt = array();
+
+        $globalsPath = BASE_URL . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, '../dmxConnect/globals.php');
+        if (file_exists($globalsPath)) {
+            include($globalsPath);
+            $globals = json_decode($exports);
+            if (isset($globals->data)) {
+                $this->scope->set($globals->data);
+            }
+        }
+
         $this->scope->set(array(
-            '$_ERROR' => $this->error,
+            '$_ERROR' => NULL,
             '$_SERVER' => $this->request->server,
+            '$_ENV' => $_ENV,
             '$_GET' => $this->request->get,
             '$_POST' => $this->request->post,
             '$_HEADER' => $this->request->headers,
@@ -58,7 +75,7 @@ class App
     }
 
     public function define($cfg) {
-        if (is_string($cfg)) {
+        if (is_string($cfg) && !preg_match('/^[\w\/]+$/', $cfg)) {
             $cfg = json_decode($cfg);
 
             if ($cfg === NULL) {
@@ -66,9 +83,23 @@ class App
             }
         }
 
+        if (isset($cfg->settings)) $this->settings($cfg->settings);
         if (isset($cfg->meta)) $this->meta($cfg->meta);
         if (isset($cfg->vars)) $this->set($cfg->vars);
-        if (isset($cfg->exec)) $this->exec($cfg->exec);
+        $path = realpath($this->get('ACTIONS_URL', BASE_URL . '/../dmxConnect/modules'));
+        if (file_exists($path . DIRECTORY_SEPARATOR . 'global.php')) {
+            require(FileSystem::encode($path . DIRECTORY_SEPARATOR . 'global.php'));
+            $this->exec(json_decode($exports), TRUE);
+        }
+        $this->exec($cfg);
+    }
+
+    protected function settings($settings) {
+        if (isset($settings->options)) {
+            if (isset($settings->options->scriptTimeout)) {
+                set_time_limit((int)$settings->options->scriptTimeout);
+            }
+        }
     }
 
     protected function meta($meta) {
@@ -81,17 +112,15 @@ class App
     }
 
     public function exec($actions, $internal = FALSE) {
-        if (is_string($actions)) {
+        if (isset($actions->exec)) {
+            return $this->exec($actions->exec, $internal);
+        }
+
+        if (is_string($actions) && !preg_match('/^[\w\/]+$/', $actions)) {
             $actions = json_decode($actions);
 
             if ($actions === NULL) {
                 Throw new \Exception('Error parsing the JSON in exec');
-            }
-        }
-
-        if (is_array($actions)) {
-            foreach ($actions as $action) {
-                $this->exec($action, $internal);
             }
         }
 
@@ -100,8 +129,8 @@ class App
         if ($this->error !== FALSE) {
             if (isset($actions->catch)) {
                 $this->scope->set('$_ERROR', $this->error->getMessage());
-                $this->execSteps($actions->catch);
                 $this->error = FALSE;
+                $this->execSteps($actions->catch);
             } else {
                 throw $this->error;
             }
@@ -121,6 +150,8 @@ class App
 			$path = realpath($this->get('ACTIONS_URL', BASE_URL . '/../dmxConnect/modules'));
             require(FileSystem::encode($path . DIRECTORY_SEPARATOR . $steps));
             $steps = json_decode($exports);
+            $this->exec($steps, TRUE);
+            return;
         }
 
         if (is_array($steps)) {
@@ -128,6 +159,10 @@ class App
                 $this->execSteps($step);
                 if ($this->error !== FALSE) return;
             }
+        }
+
+        if (isset($steps->disabled)) {
+            if ($steps->disabled) return;
         }
 
         if (is_callable($steps)) {
@@ -156,13 +191,19 @@ class App
             $module = $this->modules[$steps->module];
 
 			try {
-				$data = $module->{$steps->action}(isset($steps->options) ? clone $steps->options : NULL, isset($steps->name) ? $steps->name : NULL);
+                if (method_exists($module, $steps->action)) {
+				    $data = $module->{$steps->action}(isset($steps->options) ? clone $steps->options : NULL, isset($steps->name) ? $steps->name : NULL, isset($steps->meta) ? $steps->meta : NULL);
+                } elseif (method_exists($module, '_'.$steps->action)) {
+                    $data = $module->{'_'.$steps->action}(isset($steps->options) ? clone $steps->options : NULL, isset($steps->name) ? $steps->name : NULL, isset($steps->meta) ? $steps->meta : NULL);
+                } else {
+                    throw new \Exception("Action $steps->action doesn't exist in $module", 1);
+                }
 			} catch (\Exception $err) {
 				$this->error = $err;
 				return;
 			}
 
-			if (isset($steps->name) && isset($data)) {
+			if (isset($steps->name) && (isset($data) || is_null($data))) {
 				$this->scope->set($steps->name, $data);
 
 				if (isset($steps->output) && $steps->output === TRUE) {
@@ -172,11 +213,11 @@ class App
         }
     }
 
-	public function parse($value, Scope $scope = NULL) {
-		return $this->parseObject($value, $scope);
+	public function parse($value, Scope $scope = NULL, $stripNull = FALSE) {
+		return $this->parseObject($value, $scope, $stripNull);
 	}
 
-    public function parseObject($value, Scope $scope = NULL) {
+    public function parseObject($value, Scope $scope = NULL, $stripNull = FALSE) {
         if ($value === NULL) {
             return NULL;
         }
@@ -185,12 +226,18 @@ class App
             $value = clone $value;
             foreach ($value as $key => $val) {
                 $value->$key = $this->parseObject($val, $scope);
+                if ($stripNull && is_null($value->$key)) {
+                    unset($value->$key);
+                }
             }
         }
 
         if (is_array($value)) {
             foreach ($value as $key => $val) {
                 $value[$key] = $this->parseObject($val, $scope);
+                if ($stripNull && is_null($value[$key])) {
+                    unset($value[$key]);
+                }
             }
         }
 

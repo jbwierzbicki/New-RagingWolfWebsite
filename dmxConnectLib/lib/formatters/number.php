@@ -18,6 +18,10 @@ function formatter_abs($val) {
     return abs(floatval($val));
 }
 
+function formatter_pow($val, $exp) {
+    return pow($val, $exp);
+}
+
 function formatter_padNumber($val, $digids) {
     $num = floatval($val);
     $sign = $num < 0 ? '-' : '';

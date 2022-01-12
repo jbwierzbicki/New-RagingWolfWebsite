@@ -4,6 +4,10 @@ define('BASE_URL', __DIR__);
 // default config
 $CONFIG_DEBUG = FALSE;
 $CONFIG_TEMP_FOLDER = sys_get_temp_dir();
+$CONFIG_CORS_ORIGIN = FALSE;
+$CONFIG_CORS_METHODS = 'GET,POST';
+$CONFIG_CORS_ALLOWED_HEADERS = '*';
+$CONFIG_CORS_CREDENTIALS = TRUE;
 
 $configPath = BASE_URL . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, '../dmxConnect/config.php');
 if (file_exists($configPath)) {
@@ -98,7 +102,11 @@ function exception_handler($exception) {
 
 set_exception_handler('exception_handler');
 spl_autoload_register(function($class) {
-	$path = BASE_URL . DIRECTORY_SEPARATOR . str_replace("\\", DIRECTORY_SEPARATOR, $class) . '.php';
+	$path = BASE_URL . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'extensions' . DIRECTORY_SEPARATOR . 'server_connect' . DIRECTORY_SEPARATOR . str_replace("\\", DIRECTORY_SEPARATOR, $class) . '.php';
+
+	if (file_exists($path) === FALSE || is_readable($path) === FALSE) {
+		$path = BASE_URL . DIRECTORY_SEPARATOR . str_replace("\\", DIRECTORY_SEPARATOR, $class) . '.php';
+	}
 
 	if (file_exists($path) === FALSE || is_readable($path) === FALSE) {
 		return FALSE;
@@ -134,5 +142,54 @@ function option_default(&$options, $option, $value) {
 
 	if (!isset($options->$option)) {
 		$options->$option = $value;
+	}
+}
+
+if (CONFIG('CORS_ORIGIN') !== FALSE) {
+	if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+		$origin = CONFIG('CORS_ORIGIN') ?: '*';
+		$methods = CONFIG('CORS_METHODS');
+		$allowedHeaders = CONFIG('CORS_ALLOWED_HEADERS');
+
+		if ($origin == '*' && isset($_SERVER['HTTP_ORIGIN'])) {
+			$origin = $_SERVER['HTTP_ORIGIN'];
+		}
+		
+		header("HTTP/1.1 204 NO CONTENT");
+		header("Access-Control-Allow-Origin: $origin");
+		header("Access-Control-Allow-Methods: $methods");
+		if (CONFIG('CORS_CREDENTIALS') === TRUE) {
+			header("Access-Control-Allow-Credentials: true");
+		}
+		header("Access-Control-Allow-Headers: $allowedHeaders");
+
+		exit();
+	} else {
+		$origin = CONFIG('CORS_ORIGIN') ?: '*';
+
+		if ($origin == '*' && isset($_SERVER['HTTP_ORIGIN'])) {
+			$origin = $_SERVER['HTTP_ORIGIN'];
+		}
+
+		try {
+			if (!empty($_SERVER['HTTPS'])) {
+				if (version_compare(PHP_VERSION, '7.3.0', '<')) {
+					session_set_cookie_params(0, '/; samesite=None', $_SERVER['HTTP_HOST'], TRUE, TRUE);
+				} else {
+					session_set_cookie_params([
+						'samesite' => 'None',
+						'httponly' => TRUE,
+						'secure' => TRUE
+					]);
+				}
+			}
+		} catch (\Exception $e) {
+			// ignore
+		}
+		
+		header("Access-Control-Allow-Origin: $origin");
+		if (CONFIG('CORS_CREDENTIALS') === TRUE) {
+			header("Access-Control-Allow-Credentials: true");
+		}
 	}
 }

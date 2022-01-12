@@ -3,6 +3,7 @@
 namespace lib\auth;
 
 use \lib\App;
+use \lib\core\FileSystem;
 
 class Provider
 {
@@ -13,8 +14,25 @@ class Provider
 
 	protected $key;
 
+	public static function get(App $app, $name) {
+		if (isset($app->auth[$name])) {
+			return $app->auth[$name];
+		}
+
+		$path = realpath($app->get('ACTIONS_URL', BASE_URL . '/../dmxConnect/modules/SecurityProviders/' . $name . '.php'));
+		if (FileSystem::exists($path)) {
+			require(FileSystem::encode($path));
+			$data = json_decode($exports);
+            return new Provider($app, $data->options, $name);
+		}
+		
+		throw new \Exception('Security provider "' . $name . '" not found.');
+	}
+
 	public function __construct(App $app, $cfg, $name = NULL) {
 		$this->app = $app;
+
+		$cfg = $this->app->parseObject($cfg);
 
 		if (!isset($cfg->provider)) {
 	      throw new \Exception('Security provider is Required');
@@ -44,6 +62,10 @@ class Provider
 			$cfg->basicRealm = '';
 		}
 
+		if (!isset($cfg->passwordVerify)) {
+			$cfg->passwordVerify = FALSE;
+		}
+
 		$cfg->httpOnly = TRUE;
 		$cfg->name = $name;
 
@@ -65,16 +87,21 @@ class Provider
 				$this->login($credentials[0], $credentials[1], TRUE, TRUE);
 			}
 		}
+
+		$this->app->auth[$name] = $this;
 	}
 
 	public function setIdentity($identity = FALSE) {
 		$this->identity = $identity;
-		$this->app->session->set($this->cfg->name . 'Id', $identity);
-
-		if (!$identity) {
+		
+		if ($identity) {
+			$this->app->session->set($this->cfg->name . 'Id', $identity);
+		} else {
 			$this->app->session->remove($this->cfg->name . 'Id');
 			$this->app->response->clearCookie($this->cfg->name, $this->cfg);
 		}
+        
+		$this->app->session->regenerate();
 	}
 
 	public function readCookie() {
@@ -110,7 +137,7 @@ class Provider
 	}
 
 	public function login($username, $password, $remember = FALSE, $autologin = FALSE) {
-		$identity = $this->provider->validate($username, $password);
+		$identity = $this->provider->validate($username, $password, $this->cfg->passwordVerify);
 
 		if (!$autologin && !$identity) {
 			if ($this->cfg->basicRealm) {

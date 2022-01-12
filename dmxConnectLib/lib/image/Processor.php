@@ -127,6 +127,86 @@ class Processor extends \lib\core\NamedSingleton
         return FALSE;
     }
 
+    public function cover($width, $height, $position) {
+        $image = imagecreatetruecolor($width, $height);
+
+        $src_x = 0;
+        $src_y = 0;
+        $src_w = $this->width;
+        $src_h = $this->height;
+        
+        $xfactor = $src_w / $width;
+        $yfactor = $src_h / $height;
+
+        if ($xfactor > $yfactor) {
+            $src_w = (int)($width * $yfactor);
+
+            switch ($position) {
+                case 'left':
+                case 'left top':
+                case 'left bottom':
+                case 'top left':
+                case 'bottom left':
+                case 'west':
+                case 'nortwest':
+                case 'southwest':
+                    $src_x = 0;
+                    break;
+                case 'right':
+                case 'right top':
+                case 'right bottom':
+                case 'top right':
+                case 'bottom right':
+                case 'east':
+                case 'norteast':
+                case 'southeast':
+                    $src_x = $this->width - $src_w;
+                    break;
+                default:
+                    $src_x = (int)(($this->width - $src_w) / 2);
+            }
+        } else if ($xfactor < $yfactor) {
+            $src_h = (int)($height * $xfactor);
+
+            switch ($position) {
+                case 'top':
+                case 'top left':
+                case 'top right':
+                case 'left top':
+                case 'right top':
+                case 'north':
+                case 'nortwest':
+                case 'northeast':
+                    $src_y = 0;
+                    break;
+                case 'bottom':
+                case 'bottom left':
+                case 'bottom right':
+                case 'left bottom':
+                case 'right bottom':
+                case 'south':
+                case 'southwest':
+                case 'southeast':
+                    $src_y = $this->height - $src_h;
+                    break;
+                default:
+                    $src_y = (int)(($this->height - $src_h) / 2);
+            }
+        }
+
+        if (imagecopyresampled($image, $this->image, 0, 0, $src_w, $src_y, $width, $height, $src_w, $src_h)) {
+            imagedestroy($this->image);
+            $this->image = $image;
+            $this->width = $width;
+            $this->height = $height;
+            return TRUE;
+        }
+
+        imagedestroy($image);
+
+        return FALSE;
+    }
+
 	public function watermark($x, $y, $filename) {
 		$watermark = imagecreatefromstring(file_get_contents($filename));
 		$width = imagesx($watermark);

@@ -23,6 +23,16 @@ class Path
 
         if ($siteRoot === NULL) {
             $siteRoot = FileSystem::realpath($_SERVER['DOCUMENT_ROOT']);
+
+            if ($siteRoot === FALSE || strpos(__FILE__, $siteRoot) === FALSE) {
+                if (isset($_SERVER['CONTEXT_DOCUMENT_ROOT'])) {
+                    $siteRoot = FileSystem::realpath($_SERVER['CONTEXT_DOCUMENT_ROOT']);
+                }
+
+                if ($siteRoot === FALSE || strpos(__FILE__, $siteRoot) === FALSE) {
+                    $siteRoot = FileSystem::realpath(__DIR__ . '/../../../');
+                }
+            }
         }
 
 		return $siteRoot;
@@ -37,7 +47,7 @@ class Path
 	}
 
     public static function toSystemPath($path) {
-		if ($path[0] !== '/' || strpos($path, '..') !== FALSE) {
+		if ($path[0] !== '/' || strpos($path, '../') !== FALSE) {
 			throw new \Exception('Invalid Path! ' . $path);
 		}
 
@@ -47,7 +57,7 @@ class Path
     }
 
     public static function toAppPath($path) {
-		if (!self::isUnderAppRoot($path) || strpos($path, '..') !== FALSE) {
+		if (!self::isUnderAppRoot($path) || strpos($path, '../') !== FALSE) {
 			throw new \Exception('Invalid Path! ' . $path);
 		}
 
@@ -57,7 +67,7 @@ class Path
     }
 
     public static function toSiteUrl($path) {
-        if (strpos($path, self::getSiteRoot()) !== 0 || strpos($path, '..') !== FALSE) {
+        if (strpos($path, self::getSiteRoot()) !== 0 || strpos($path, '../') !== FALSE) {
             //throw new \Exception('Invalid Path! ' . $path);
         }
 

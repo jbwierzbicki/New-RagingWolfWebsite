@@ -4,6 +4,7 @@ namespace modules;
 
 use \lib\core\Module;
 use \lib\core\Scope;
+use \lib\core\FileSystem;
 
 class core extends Module
 {
@@ -75,6 +76,14 @@ class core extends Module
         return $data;
     }
 
+    public function _while($options) {
+        option_require($options, array('while', 'exec'));
+
+        while ($this->app->parseObject($options->while)) {
+            $this->app->exec($options->exec, TRUE);
+        }
+    }
+
     public function condition($options) {
 		option_require($options, array('if', 'then'));
 
@@ -82,6 +91,34 @@ class core extends Module
             $this->app->exec($options->then, TRUE);
         } elseif (isset($options->else)) {
             $this->app->exec($options->else, TRUE);
+        }
+    }
+
+    public function conditions($options) {
+        option_require($options, 'conditions');
+
+        if (is_array($options->conditions)) {
+            foreach ($options->conditions as $condition) {
+                if ($this->app->parseObject($condition->when)) {
+                    $this->app->exec($condition->then, TRUE);
+                    return;
+                }
+            }
+        }
+    }
+
+    public function select($options) {
+        option_require($options, array('expression', 'cases'));
+
+        if (is_array($options->cases)) {
+            $expression = $this->app->parseObject($options->expression);
+
+            foreach ($options->cases as $case) {
+                if ($expression === $case->value) {
+                    $this->app->exec($case->exec, TRUE);
+                    return;
+                }
+            }
         }
     }
 
@@ -109,6 +146,16 @@ class core extends Module
         $this->app->scope->global->set('$_SESSION', $this->app->session);
     }
 
+    public function setcookie($options, $name) {
+        $options = $this->app->parseObject($options);
+        $this->app->response->setCookie($name, $options->value, $options);
+    }
+
+    public function removecookie($options, $name) {
+        $options = $this->app->parseObject($options);
+        $this->app->response->clearCookie($name, $options);
+    }
+
     public function response($options) {
 		option_require($options, 'data');
 
@@ -133,4 +180,68 @@ class core extends Module
         header('Location: ' . $this->app->parseObject($options->url));
         exit();
     }
+
+    public function trycatch($options) {
+        option_require($options, 'try');
+
+        try {
+            $this->app->exec($options->try, TRUE);
+        } catch(\Exception $error) {
+            $this->app->scope->set('$_ERROR', $error->getMessage());
+            $this->app->error = FALSE;
+            if (isset($options->catch)) {
+                $this->app->exec($options->catch, TRUE);
+            }
+        }
+    }
+
+    public function exec($options) {
+        option_require($options, 'exec');
+
+        $data = array();
+
+        $path = realpath($this->app->get('ACTIONS_URL', BASE_URL . '/../dmxConnect/modules/lib/' . $options->exec . '.php'));
+		if (FileSystem::exists($path)) {
+            $appData = $this->app->data;
+            $this->app->data = array();
+            $scope = array();
+            $scope['$_PARAM'] = isset($options->params) ? $this->app->parseObject($options->params) : array();
+            $this->app->scope = new Scope($this->app->scope, $scope);
+			require(FileSystem::encode($path));
+            $this->app->exec(json_decode($exports), TRUE);
+            $data = $this->app->data;
+            $this->app->scope = $this->app->scope->parent;
+            $this->app->data = $appData;
+		} else {
+            throw new \Exception('There is no action called ' . $options->exec . ' found in the library.');
+        }
+
+        return $data;
+    }
+
+    public function group($options, $name) {
+        option_require($options, 'exec');
+
+        $data = array();
+
+        if (!empty($name)) {
+            $appData = $this->app->data;
+            $this->app->data = array();
+            $this->app->exec($options->exec, TRUE);
+            $data = $this->app->data;
+            $this->app->data = $appData;
+        } else {
+            $this->app->exec($options->exec, TRUE);
+        }
+
+        return $data;
+    }
+
+    public function randomUUID() {
+        $data = function_exists('random_bytes') ? random_bytes(16) : openssl_random_pseudo_bytes(16);
+        $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
+        $data[7] = chr(ord($data[8]) & 0x3f | 0x80);
+        return vsprintf('%s%s-%s-%s-%s-%s%s%s', str_split(bin2hex($data), 4));
+      }
+      
 }

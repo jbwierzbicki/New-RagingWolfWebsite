@@ -8,6 +8,37 @@ use \lib\core\Path;
 
 class fs extends Module
 {
+    public function download($options) {
+        option_require($options, 'path');
+
+        $options = $this->app->parseObject($options);
+
+        $path = Path::toSystemPath($options->path);
+
+        if (FileSystem::isfile($path)) {
+            set_time_limit(0);
+            
+            ignore_user_abort(false);
+            
+            ini_set('output_buffering', 0);
+            ini_set('zlib.output_compression', 0);
+
+            $filename = basename($path);
+
+            if (isset($options->filename)) {
+                $filename = $options->filename;
+            }
+
+            header('Content-Type: application/octet-stream');
+            header('Content-Disposition: attachment; filename="' . $filename . '"');
+            header('Content-Length: ' . filesize($path));
+            
+            readfile($path);
+        }
+
+        exit();
+    }
+
     public function exists($options) {
 		option_require($options, 'path');
 
@@ -308,9 +339,9 @@ class fs extends Module
             $stat['size'] = 0;
 
             if ($options->folderSize === 'files') {
-                $stat['size'] = $this->folderSize($stat['path']);
+                $stat['size'] = $this->folderSize($path);
             } elseif ($options->folderSize === 'recursive') {
-                $stat['size'] = $this->folderSize($stat['path'], TRUE);
+                $stat['size'] = $this->folderSize($path, TRUE);
             }
         }
 
@@ -329,7 +360,7 @@ class fs extends Module
             if (FileSystem::isfile($path)) {
                 $size += filesize(FileSystem::encode($path));
             } elseif ($recursive && FileSystem::isdir($path)) {
-                $size += $this->folderSize($path);
+                $size += $this->folderSize($path, $recursive);
             }
         }
 

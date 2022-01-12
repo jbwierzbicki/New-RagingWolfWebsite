@@ -90,7 +90,7 @@ class ZipProcessor extends \ZipArchive
 			}
 
 			if ($recursive && $entry->isDir()) {
-                $this->addEmptyDir($entry->getBasename() . '/');
+                $this->addEmptyDir($localpath . $entry->getBasename() . '/');
 				$success = $success && $this->addDir($entry->getPathname(), $localpath . $entry->getBasename() . '/', TRUE);
 			}
 

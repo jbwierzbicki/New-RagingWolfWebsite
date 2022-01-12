@@ -21,6 +21,10 @@ class import extends Module
 			$keys = $options->fields;
             $data = array();
 
+            if (fread($fp, 3) !== chr(0xEF).chr(0xBB).chr(0xBF)) {
+                rewind($fp);
+            }
+
 			if ($options->header) {
 				$keys = fgetcsv($fp, 0, $options->delimiter);
                 foreach ($options->fields as $field) {

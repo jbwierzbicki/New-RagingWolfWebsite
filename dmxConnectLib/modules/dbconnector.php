@@ -8,11 +8,11 @@ use \lib\db\SqlBuilder;
 
 class dbconnector extends Module
 {
-    public function connect($options) {
-        return new Connection($this->app, $this->app->parseObject($options));
+    public function connect($options, $name) {
+        return new Connection($this->app, $this->app->parseObject($options), $name);
     }
 
-    public function select($options) {
+    public function select($options, $name, $meta) {
         option_require($options, 'connection');
         option_require($options, 'sql');
         option_require($options->sql, 'table');
@@ -23,7 +23,7 @@ class dbconnector extends Module
 
         $options->sql->type = 'select';
 
-        $connection = $this->app->scope->get($options->connection);
+        $connection = Connection::get($this->app, $options->connection);
 
         if ($connection === NULL) {
             throw new \Exception('Connection "' . $options->connection . '" not found.');
@@ -37,7 +37,7 @@ class dbconnector extends Module
           foreach ($options->sql->columns as $column) {
             if ($column->column == $options->sql->sort || (isset($column->alias) && $column->alias == $options->sql->sort)) {
               $order = (object)array(
-                'column' => $column->column,
+                'column' => isset($column->alias) ? $column->alias : $column->column,
                 'direction' => isset($options->sql->dir) && strtoupper($options->sql->dir) == 'DESC' ? 'DESC' : 'ASC'
               );
 
@@ -64,8 +64,41 @@ class dbconnector extends Module
 			);
 		}
 
-        return $connection->execute($sql->query, $sql->params);
+        return $connection->execute($sql->query, $sql->params, TRUE, '', $meta);
     }
+
+    public function single($options, $name, $meta) {
+      option_require($options, 'connection');
+      option_require($options, 'sql');
+      option_require($options->sql, 'table');
+
+      $options = $this->parseOptions($options);
+
+      $options->sql->type = 'select';
+
+      $connection = Connection::get($this->app, $options->connection);
+
+      if ($connection === NULL) {
+          throw new \Exception('Connection "' . $options->connection . '" not found.');
+      }
+
+      $sql = new SqlBuilder($this->app, $connection);
+
+      $sql->fromJSON($options->sql);
+      $sql->compile();
+
+      if (isset($options->test)) {
+          return (object)array(
+              'options' => $options,
+              'query' => $sql->query,
+              'params' => $sql->params
+          );
+      }
+
+      $results = $connection->execute($sql->query, $sql->params, TRUE, '', $meta);
+
+      return count($results) ? $results[0] : NULL;
+  }
 
     public function count($options) {
         option_require($options, 'connection');
@@ -76,7 +109,7 @@ class dbconnector extends Module
 
         $options->sql->type = 'count';
 
-        $connection = $this->app->scope->get($options->connection);
+        $connection = Connection::get($this->app, $options->connection);
 
         if ($connection === NULL) {
             throw new \Exception('Connection "' . $options->connection . '" not found.');
@@ -87,20 +120,20 @@ class dbconnector extends Module
         $sql->fromJSON($options->sql);
         $sql->compile();
 
-		if (isset($options->test)) {
-			return (object)array(
-                'options' => $options,
-				'query' => $sql->query,
-				'params' => $sql->params
-			);
-		}
+    		if (isset($options->test)) {
+    			return (object)array(
+            'options' => $options,
+    				'query' => $sql->query,
+    				'params' => $sql->params
+    			);
+    		}
 
         $result = $connection->execute($sql->query, $sql->params);
 
         return $result[0]['Total'];
     }
 
-    public function paged($options) {
+    public function paged($options, $name, $meta) {
         option_require($options, 'connection');
         option_require($options, 'sql');
         option_require($options->sql, 'table');
@@ -114,7 +147,7 @@ class dbconnector extends Module
         if (is_null($options->sql->offset)) $options->sql->offset = 0;
         if (is_null($options->sql->limit)) $options->sql->limit = 25;
 
-        $connection = $this->app->scope->get($options->connection);
+        $connection = Connection::get($this->app, $options->connection);
 
         if ($connection === NULL) {
             throw new \Exception('Connection "' . $options->connection . '" not found.');
@@ -128,7 +161,7 @@ class dbconnector extends Module
           foreach ($options->sql->columns as $column) {
             if ($column->column == $options->sql->sort || (isset($column->alias) && $column->alias == $options->sql->sort)) {
               $order = (object)array(
-                'column' => $column->column,
+                'column' => isset($column->alias) ? $column->alias : $column->column,
                 'direction' => isset($options->sql->dir) && strtoupper($options->sql->dir) == 'DESC' ? 'DESC' : 'ASC'
               );
 
@@ -148,12 +181,20 @@ class dbconnector extends Module
         $sql->fromJSON($options->sql);
         $sql->compile();
         $result = $connection->execute($sql->query, $sql->params);
-        $total = $result[0]['Total'];
+        $total = 0;
+        // Check if Total is available (prevent error)
+        if (isset($result[0]['Total'])) {
+          $total = $result[0]['Total'];
+        }
+        // Postgres converts column names to lowercase
+        if (isset($result[0]['total'])) {
+          $total = $result[0]['total'];
+        }
 
         $options->sql->type = 'select';
         $sql->fromJSON($options->sql);
         $sql->compile();
-        $result = $connection->execute($sql->query, $sql->params);
+        $result = $connection->execute($sql->query, $sql->params, TRUE, '', $meta);
 
         return array(
             'offset' => intval($options->sql->offset),
@@ -183,7 +224,7 @@ class dbconnector extends Module
         }
 
         if (isset($options->sql->wheres) && isset($options->sql->wheres->rules)) {
-            if (isset($options->sql->wheres->conditional) && !$this->app->parseObject($options->sql->wheres->conditional)) {
+            if (!empty($options->sql->wheres->conditional) && !$this->app->parseObject($options->sql->wheres->conditional)) {
                 unset($options->sql->wheres);
             } else {
                 $options->sql->wheres->rules = array_filter($options->sql->wheres->rules, array($this, 'filterRules'));
@@ -199,7 +240,7 @@ class dbconnector extends Module
 
     protected function filterRules($rule) {
         if (!isset($rule->rules)) return TRUE;
-        if (isset($rule->conditional) && !$this->app->parseObject($rule->conditional)) return FALSE;
+        if (!empty($rule->conditional) && !$this->app->parseObject($rule->conditional)) return FALSE;
         $rule->rules = array_filter($rule->rules, array($this, 'filterRules'));
         return !empty($rule->rules);
     }

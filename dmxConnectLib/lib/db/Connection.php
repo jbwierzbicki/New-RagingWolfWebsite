@@ -4,6 +4,7 @@ namespace lib\db;
 
 use \PDO;
 use \lib\App;
+use \lib\core\FileSystem;
 
 class Connection
 {
@@ -11,8 +12,25 @@ class Connection
 	public $server;
 	public $pdo;
 
-	public function __construct(App $app, $options) {
+	public static function get(App $app, $name) {
+		if (isset($app->db[$name])) {
+			return $app->db[$name];
+		}
+
+		$path = realpath($app->get('ACTIONS_URL', BASE_URL . '/../dmxConnect/modules/Connections/' . $name . '.php'));
+		if (FileSystem::exists($path)) {
+			require(FileSystem::encode($path));
+			$data = json_decode($exports);
+            return new Connection($app, $data->options, $name);
+		}
+		
+		throw new \Exception('Connection "' . $name . '" not found.');
+	}
+
+	public function __construct(App $app, $options, $name) {
 		$this->app = $app;
+
+		$options = $this->app->parseObject($options);
 
 		if (!isset($options->connectionString)) {
 			throw new \Exception('Connection String is Required');
@@ -27,6 +45,7 @@ class Connection
 		$preps = FALSE;
 		$sslca = '';
 		$sslverify = FALSE;
+		$charset = 'utf8';
 		$pdo_options = NULL;
 
 		if (preg_match("/user=([^;]*)/i", $dsn, $match)) {
@@ -56,9 +75,14 @@ class Connection
 			$dsn = preg_replace("/sslverify=[^;]*;?/i", '', $dsn);
 		}
 
+		if (preg_match('/charset=([^;]*)/i', $dsn, $match)) {
+			$charset = $match[1];
+			$dsn = preg_replace("/charset=[^;]*;?/i", '', $dsn);
+		}
+
 		if (preg_match('/^mysql:/', $dsn)) {
 			$pdo_options = array(
-				PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+				PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES ' . $charset,
 				PDO::ATTR_EMULATE_PREPARES => $preps,
 				PDO::ATTR_STRINGIFY_FETCHES => FALSE
 			);
@@ -72,28 +96,38 @@ class Connection
 			}
 		}
 
+		if (preg_match('/^sqlite:/', $dsn)) {
+			$dsn = str_replace('sqlite:', 'sqlite:'. $_SERVER['DOCUMENT_ROOT'] . '/', $dsn);
+		}
+
 		$this->pdo = new PDO($dsn, $user, $password, $pdo_options);
 		$this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		$this->app->db[$name] = $this;
 	}
 
-	public function execute($query, array $params, $returnRecords = TRUE, $table = '') {
+	public function execute($query, array $params, $returnRecords = TRUE, $table = '', $meta = []) {
 		$statement = $this->pdo->prepare($query);
 
 		foreach ($params as $key => $param) {
 			$param = $this->app->parseObject($param);
 
-			if (isset($param->type) && isset($param->value) && is_string($param->value) && strtolower($param->value) == 'now') {
+			if (isset($param->type) && isset($param->value) && is_string($param->value)) {
 				switch (strtolower($param->type)) {
 					case 'date':
-					$param->value = date('Y-m-d');
-					break;
+						$param->value = date('Y-m-d', strtotime($param->value));
+						break;
 					case 'time':
-					$param->value = date('H:i:s');
-					break;
+						$param->value = date('H:i:s', strtotime($param->value));
+						break;
 					case 'datetime':
-					$param->value = date('Y-m-d H:i:s');
-					break;
+						$param->value = date('Y-m-d H:i:s', strtotime($param->value));
+						break;
 				}
+			}
+
+			if (isset($param->type) && $param->type == 'json') {
+				$param->value = json_encode($param->value);
 			}
 
 			if (isset($param->whereType) && $param->whereType == 'Like') {
@@ -108,7 +142,21 @@ class Connection
 		$statement->execute();
 
 		if ($returnRecords && $statement->columnCount() > 0) {
-			return $statement->fetchAll(PDO::FETCH_ASSOC);
+			$records = array();
+			$types = is_array($meta) ? array_column($meta, 'type', 'name') : array();
+
+			while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+				foreach ($row as $name => $value) {
+					if (isset($types[$name]) && ($types[$name] == 'json' || $types[$name] == 'object' || $types[$name] == 'array')) {
+						// json support
+						$row[$name] = json_decode($value);
+					}
+				}
+				array_push($records, $row);
+			}
+
+			return $records;
+			//return $statement->fetchAll(PDO::FETCH_ASSOC);
 		}
 
 		$identity = NULL;

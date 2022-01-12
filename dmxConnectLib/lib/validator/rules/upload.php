@@ -5,26 +5,25 @@ namespace lib\validator\rules;
 class upload extends \lib\core\Singleton
 {
     public function accept($value, $param) {
-        if (!$this->isValidFileValue($value)) return TRUE;
+        $files = $this->getFiles($value);
+        $allowed = explode(',', preg_replace('/\s/', '', $param));
 
-        if (isset($value['isFile'])) {
-            // validate single file
+        foreach ($files as $file) {
             $ok = FALSE;
-            $allowed = explode(',', preg_replace('/\s/', '', $param));
 
             foreach ($allowed as $check) {
                 if ($check[0] == '.') {
-                    if (preg_match('/\\' . $check . '$/i', $value['name'])) {
+                    if (preg_match('/\\'. $check . '$/i', $file['name'])) {
                         $ok = TRUE;
                         break;
                     }
                 } elseif (preg_match('/(audio|video|image)\/\*/i', $check)) {
-                    if (preg_match('/^' . str_replace('*', '.*', $check) . '$/i', $value['type'])) {
+                    if (preg_match('/^' . str_replace('*', '.*', $check) . '$/i', $file['type'])) {
                         $ok = TRUE;
                         break;
                     }
                 } else {
-                    if (strtolower($value['type']) == strtolower($check)) {
+                    if (strtolower($file['type']) == strtolower($check)) {
                         $ok = TRUE;
                         break;
                     }
@@ -34,14 +33,8 @@ class upload extends \lib\core\Singleton
             if (!$ok) {
                 return FALSE;
             }
-        } else {
-            // multiple files
-            foreach ($value as $file) {
-                if (!$this->accept($file, $param)) {
-                    return FALSE;
-                }
-            }
         }
+
         return TRUE;
     }
 

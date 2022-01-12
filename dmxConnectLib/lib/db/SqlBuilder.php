@@ -324,7 +324,7 @@ class SqlBuilder
               	return implode(' ', array($this->compileColumn(isset($where->data) ? $where->data : $where), $where->operation, $this->compileParameter($where, 0), 'AND', $this->compileParameter($where, 1)));
             }
 
-          	if (in_array($where->operator, array('is_null', 'not_is_null'))) {
+          	if (in_array($where->operator, array('is_null', 'is_not_null'))) {
               	return implode(' ', array($this->compileColumn(isset($where->data) ? $where->data : $where), $where->operation));
             }
 

@@ -17,7 +17,7 @@ class StaticProvider
 		$this->perms = $options->perms;
 	}
 
-	public function validate($username,  $password) {
+	public function validate($username, $password, $usePasswordVerify) {
 		if (isset($this->users->$username) && $this->users->$username == $password) {
 			return $username;
 		}

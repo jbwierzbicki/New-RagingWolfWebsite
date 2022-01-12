@@ -3,6 +3,7 @@
 namespace lib\auth;
 
 use lib\App;
+use lib\db\Connection;
 use lib\db\SqlBuilder;
 
 class DatabaseProvider
@@ -16,10 +17,11 @@ class DatabaseProvider
 
 		$this->app = $app;
 		$this->options = $options;
-		$this->connection = $this->app->scope->get($this->options->connection);
+		//$this->connection = $this->app->scope->get($this->options->connection);
+		$this->connection = Connection::get($app, $options->connection);
 	}
 
-	public function validate($username, $password) {
+	public function validate($username, $password, $usePasswordVerify) {
 		$sql = new SqlBuilder($this->app, $this->connection);
 
 		$user = $this->options->users;
@@ -27,14 +29,14 @@ class DatabaseProvider
 		$sql->select($user->identity, $user->username, $user->password);
 		$sql->from($user->table);
 		$sql->where($user->username, '=', $username);
-		$sql->where($user->password, '=', $password);
+		//$sql->where($user->password, '=', $password);
 		$sql->compile();
 
 		$result = $this->connection->execute($sql->query, $sql->params);
 
 		foreach ($result as $data) {
 			// we check username and password again in case database is not case-sensitive
-			if ($data[$user->username] == $username && $data[$user->password] == $password) {
+			if ($data[$user->username] == $username && ($usePasswordVerify ? password_verify($password, $data[$user->password]) : $data[$user->password] == $password)) {
 				return $data[$user->identity];
 			}
 		}

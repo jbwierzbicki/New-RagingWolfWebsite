@@ -17,7 +17,7 @@ class SingleProvider
 		$this->password = $options->password;
 	}
 
-	public function validate($username, $password) {
+	public function validate($username, $password, $usePasswordVerify) {
 		if ($username == $this->username && $password == $this->password) {
 			return $username;
 		}
