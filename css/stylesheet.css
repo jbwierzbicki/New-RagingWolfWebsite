@@ -3,6 +3,10 @@ h1 {
   font-family: 'Sansation', sans-serif;
   letter-spacing: 1px;
 }
+h5 {
+  font-family: 'Sansation', sans-serif;
+  font-weight: bold;  
+}
 body {
   font-family: 'Sansation', sans-serif;
   font-weight: bold;
