@@ -6,6 +6,11 @@ h1 {
 h5 {
   font-family: 'Sansation', sans-serif;
   font-weight: bold;  
+  letter-spacing: .6px;
+}
+h6 {
+  font-family: 'Sansation', sans-serif;
+  letter-spacing: 1px;
 }
 body {
   font-family: 'Sansation', sans-serif;
@@ -119,11 +124,6 @@ a {
 .univ--footer--container--row--col2 {
 }
 .univ--footer--container--row--col3 {
-}
-.univ--footer--container--row--col--h6 {
-  font-family: 'Lustria', serif;
-  text-transform: uppercase;
-  letter-spacing: 2px;
 }
 .univ--footer--container--row--col--li {
 }
