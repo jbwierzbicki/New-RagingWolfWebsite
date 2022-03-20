@@ -1,9 +1,11 @@
 /* Global */
 h1 {
   font-family: 'Sansation', sans-serif;
+  letter-spacing: 1px;
 }
 body {
   font-family: 'Sansation', sans-serif;
+  font-weight: bold;
 }
 a {
   color: inherit !important;
