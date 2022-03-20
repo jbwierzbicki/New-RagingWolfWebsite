@@ -1,4 +1,5 @@
 <html><head><link rel="stylesheet" href="css/stylesheet.css">
+<link href="http://fonts.cdnfonts.com/css/sansation" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lustria&amp;family=Muli:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
 </head><!-- Wappler include  head-page="index.php" appconnect="local" is="dmx-app" bootstrap4="cdn" fontawesome_4="cdn" jquery_slim_33="cdn" components="{&quot;dmxBootstrap4Modal&quot;:{}}"-->
   <main class="index--main">
@@ -40,7 +41,7 @@
               <img src="assets/images/rws_logo.svg" class="w-100 mb-3 index--main--section--container--row--col--img">
             </div>
             <div class="col-12 col-md-8 col-xl-7 pt-1 pb-1 index--main--section--container--row--col2">
-              <h1 class="text-light mt-0">We are the Alpha Leaders in Logistics.</h1>
+              <h1 class="text-light mt-0 font-weight-bold">We are the Alpha Leaders in Logistics.</h1>
               <h5 class="text-light mb-4">With our comprehensive freight transportation services, Raging Wolf Solutions offers nation-wide shipping and a wide array of full-service solutions. Learn more or get your free quote today!</h5>
               <div class="btn-group index--main--section--container--row--col2--btngroup" role="group" aria-label="Button Group">
                 <button id="ourservices" class="btn text-white index--main--section--container--row--col2--btngroup--btn1" data-toggle="modal" data-target="#modal1">Our services</button>
