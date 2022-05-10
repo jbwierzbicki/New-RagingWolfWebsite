@@ -42,7 +42,7 @@
                 <div class="row">
                   <div class="text-left col-12">
                     <h5 class="text-light">1. Save a copy of our carrier packet.</h5>
-                    <a target="_blank" rel="noopener noreferrer" href="assets/Raging%20Wolf%20Carrier%20Packet%20020922%20-%20LIVE.pdf">
+                    <a target="_blank" rel="noopener noreferrer" href="assets/Raging%20Wolf%20Carrier%20Packet%20051022.pdf">
                       <button id="btn1" class="btn btn-secondary mb-4 pt-3 pb-3 pl-3 pr-3"><i class="fa fa-download"></i>&nbsp;Download Carrier Packet</button>
                     </a>
                     <h5 class="text-light pt-2">2. Send the completed carrier packet to us.</h5>
