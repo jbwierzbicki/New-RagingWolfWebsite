@@ -83,6 +83,55 @@
         </div>
       </div>
       </div>
+      <div class="modal" id="modal2" is="dmx-bs4-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Current Opening</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <h5>Area Sales Representative</h5>
+              <p class="font-italic">Raging Wolf Solutions – Twinsburg, OH (or remote)</p>
+              <p>Are you hungry? The PACK at Raging Wolf Solutions is looking to grow our sales team. If you share our commitment to exceeding customer expectations and providing outstanding service, consider joining our staff of experienced transportation professionals. Applications will be reviewed and prioritized based on…</p>
+              <p wappler-command="editContent" class="ml-3">- Experience in or around the transportation industry
+              </p>
+              <p wappler-command="editContent" class="ml-3">- Experience working as a 3PL or selling freight transportation services</p>
+              <p wappler-command="editContent" class="ml-3">- History of strong service and communication
+              </p>
+              <p wappler-command="editContent" class="ml-3">- An aptitude for building and maintaining relationships</p>
+              <p wappler-command="editContent" class="ml-3">- Willingness to travel in your area and occasionally further</p>
+              <p wappler-command="editContent">It is our job to provide customers with outstanding service and competitive pricing. Any contacts or expertise you bring to the table can increase your likelihood of success.
+              </p>
+              <p wappler-command="editContent">--- ABOUT US ---
+              </p>
+              <p wappler-command="editContent">Raging Wolf Solutions is a full service third party logistics provider, offering shipping and freight transportation solutions across the continental United States. We leverage our expansive network of carriers and combined 60 years in the industry to bring our customers unparalleled communication and service.
+              </p>
+              <p wappler-command="editContent">Our team can move anything from one box to a full truckload. Some of our specialty moves include air/ground expedites, full truckloads, straight trucks, cargo vans, sprinter vans -- and much more! See our website for the full list &gt;
+              </p>
+              <p wappler-command="editContent">--- WHY RAGING WOLF ---
+              </p>
+              <p wappler-command="editContent">Why work with us? Our team believes that its Operation Coordinators are the backbone of what we do. You will work in an environment that appreciates and rewards you for your efforts every step of the way. You will also receive in-depth training and support from your team members. We've got your back!
+              </p>
+              <p wappler-command="editContent">---GUIDANCE AND SUPPORT---
+              </p>
+              <p wappler-command="editContent">Although our operations are based out of Twinsburg OH, the Raging Wolf team offers freight transportation across the country. Our digital marketing and promotional teams can help you seek out and target leads in your area. Our Sales team will also help you connect with new carriers and customers -- The Raging Wolf Way.</p><p></p>
+          </div>
+          <div class="modal-footer">
+            <div class="d-flex w-100 mt-0 mb-0 justify-content-between">
+              <a href="mailto:richm@ragingwolfsolutions.com">
+                <p class="mt-2 mb-2 text-primary">Email us your application</p>
+              </a>
+              <div class="btn-group" role="group" aria-label="Button Group">
+                <a href=""><button type="button" class="btn btn-secondary ml-2 mr-2" data-dismiss="modal">Close</button></a>
+                <a href="https://www.indeed.com/job/transportation-logistics-specialist-d7679cd212c691d7"></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
       <section class="contact--main--section">
         <div class="contact--main--section--container h-100 container-lg">
           <div class="row justify-content-center h-50 row-cols-1 w-100">
@@ -93,6 +142,11 @@
               <p class="text-light mb-2">Current Openings:</p>
               <div class="d-flex">
                 <button id="btn1" class="btn btn-secondary pl-3 pr-3" data-toggle="modal" data-target="#modal1">Operations Team -- Transportation Logistics Specialist</button>
+                <p class="text-light font-italic d-none">There are currently no positions available. Check back later!
+                </p>
+              </div>
+              <div class="d-flex">
+                <button id="btn2" class="btn btn-secondary mt-3 pl-3 pr-3" data-toggle="modal" data-target="#modal2">Sales Team -- Area Sales Representative</button>
                 <p class="text-light font-italic d-none">There are currently no positions available. Check back later!
                 </p>
               </div></div>
