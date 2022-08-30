@@ -10,6 +10,8 @@ class core extends Module
 {
     public function repeat($options) {
 		option_require($options, 'repeat');
+        option_default($options, 'outputFilter', 'include');
+        option_default($options, 'outputFields', array());
 
         $repeater = $this->app->parseObject($options->repeat);
 
@@ -40,10 +42,14 @@ class core extends Module
         foreach ($repeater as $key => $value) {
             $this->app->data = array();
 
-            if (isset($options->outputFields) && is_array($options->outputFields)) {
-                if (is_array($value) || is_object($value)) {
-                    foreach ($value as $k => $v) {
-                        if (in_array($k, $options->outputFields)) {
+            if (is_array($value) || is_object($value)) {
+                foreach ($value as $k => $v) {
+                    if ($options->outputFilter == 'exclude') {
+                        if (!(isset($options->outputFields) && in_array($k, $options->outputFields))) {
+                            $this->app->data[$k] = $v;
+                        }
+                    } else {
+                        if (isset($options->outputFields) && in_array($k, $options->outputFields)) {
                             $this->app->data[$k] = $v;
                         }
                     }
@@ -176,8 +182,10 @@ class core extends Module
 
     public function redirect($options) {
         option_require($options, 'url');
+        option_default($options, 'status', 302);
 
-        header('Location: ' . $this->app->parseObject($options->url));
+        header('Cache-Control: no-store');
+        header('Location: ' . $this->app->parseObject($options->url), TRUE, $options->status == 301 ? 301 : 302);
         exit();
     }
 

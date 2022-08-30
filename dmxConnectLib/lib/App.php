@@ -53,6 +53,16 @@ class App
             }
         }
 
+        if (CONFIG('ENV')) {
+            $env = json_decode(CONFIG('ENV'), TRUE);
+
+            foreach ($env as $name => $value) {
+                if (!isset($_ENV[$name])) {
+                    $_ENV[$name] = $value;
+                }
+            }
+        }
+
         $this->scope->set(array(
             '$_ERROR' => NULL,
             '$_SERVER' => $this->request->server,
@@ -167,15 +177,7 @@ class App
 
         if (is_callable($steps)) {
             try {
-                $data = $steps();
-
-                if (isset($steps->name) && isset($data)) {
-                    $this->scope->set($steps->name, $data);
-
-                    if (isset($steps->output) && $steps->output === TRUE) {
-                        $this->data[$steps->name] = $data;
-                    }
-                }
+                $steps();
             } catch(\Exception $err) {
                 $this->error = $err;
                 return;

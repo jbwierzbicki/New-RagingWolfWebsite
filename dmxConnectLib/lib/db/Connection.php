@@ -10,6 +10,7 @@ class Connection
 {
 	public $app;
 	public $server;
+	public $options;
 	public $pdo;
 
 	public static function get(App $app, $name) {
@@ -21,7 +22,7 @@ class Connection
 		if (FileSystem::exists($path)) {
 			require(FileSystem::encode($path));
 			$data = json_decode($exports);
-            return new Connection($app, $data->options, $name);
+            return new Connection($app, $app->parseObject($data->options), $name);
 		}
 		
 		throw new \Exception('Connection "' . $name . '" not found.');
@@ -31,6 +32,7 @@ class Connection
 		$this->app = $app;
 
 		$options = $this->app->parseObject($options);
+		$this->options = $options;
 
 		if (!isset($options->connectionString)) {
 			throw new \Exception('Connection String is Required');
@@ -147,7 +149,7 @@ class Connection
 
 			while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
 				foreach ($row as $name => $value) {
-					if (isset($types[$name]) && ($types[$name] == 'json' || $types[$name] == 'object' || $types[$name] == 'array')) {
+					if ($value !== NULL && isset($types[$name]) && ($types[$name] == 'json' || $types[$name] == 'object' || $types[$name] == 'array')) {
 						// json support
 						$row[$name] = json_decode($value);
 					}

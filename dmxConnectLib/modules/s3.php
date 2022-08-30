@@ -15,7 +15,7 @@ class s3 extends Module
 {
     public function provider($options, $name) {
         $pos = stripos($options->endpoint, '.amazonaws');
-        $region = 'us-east-1';
+        $region = isset($options->region) ? $options->region : 'us-east-1';
 
         if ($pos) {
             $region = substr($options->endpoint, 3, $pos - 3);

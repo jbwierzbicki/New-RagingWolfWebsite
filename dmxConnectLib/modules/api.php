@@ -61,10 +61,13 @@ class api extends Module
                 if (!isset($headers['Content-Type'])) {
                     $headers['Content-Type'] = 'application/' . $options->dataType;
                 }
-                if ($options->dataType == 'x-www-form-urlencoded') {
-                    $data = http_build_query($options->data);
-                } else {
-                    $data = json_encode($options->data);
+
+                if (!empty($data)) {
+                    if ($options->dataType == 'x-www-form-urlencoded') {
+                        $data = http_build_query($options->data);
+                    } else {
+                        $data = json_encode($options->data);
+                    }
                 }
             } elseif ($method == 'POST') {
                 curl_setopt($handle, CURLOPT_POST, TRUE);

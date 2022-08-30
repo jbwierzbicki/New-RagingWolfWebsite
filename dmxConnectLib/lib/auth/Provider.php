@@ -162,6 +162,7 @@ class Provider
 	public function restrict($opts) {
 		if (!$this->identity) {
 			if (isset($opts->loginUrl) && !empty($opts->loginUrl)) {
+				header('Cache-Control: no-store');
 				header('Location: ' . $opts->loginUrl);
 				die();
 			} else {
@@ -176,6 +177,7 @@ class Provider
 			$opts->permissions = is_array($opts->permissions) ? $opts->permissions : array($opts->permissions);
 			if (!$this->provider->permissions($this->identity, $opts->permissions)) {
 				if (isset($opts->forbiddenUrl) && !empty($opts->forbiddenUrl)) {
+					header('Cache-Control: no-store');
 					header('Location: ' . $opts->forbiddenUrl);
 					die();
 				} else {
